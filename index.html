@@ -81,11 +81,11 @@ tailwind.config = {
 
 <!-- Header -->
 <header id="mainHeader" class="sticky sm:top-2 top-2 z-50 transition-all pointer-events-none px-2 sm:px-4">
-  <div class="max-w-7xl mx-auto sm:bg-surface-0/40 sm:backdrop-blur-2xl sm:shadow-lg sm:rounded-full pointer-events-auto flex items-center justify-between gap-1 sm:gap-2 p-1 sm:p-1.5 h-12 sm:h-14 relative overflow-visible border border-transparent">
+  <div class="max-w-7xl mx-auto bg-surface-0/40 backdrop-blur-2xl shadow-lg rounded-full pointer-events-auto flex items-center justify-between gap-1 sm:gap-2 p-1 sm:p-1.5 h-12 sm:h-14 relative overflow-visible border border-transparent">
     
     <!-- Logo & Brand (Reduced) -->
     <a href="#/" class="flex items-center gap-2 group shrink-0 px-2 sm:px-3">
-      <img src="./public/logo_ic.png" alt="S" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-100 object-cover group-hover:scale-105 transition-transform shadow-sm">
+      <img src="./public/logo_ic.png" alt="S" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-100/50 object-cover group-hover:scale-105 transition-transform shadow-sm">
       <span class="font-bold text-surface-900 text-base sm:text-lg tracking-tight hidden lg:block pt-0.5">Sotka<span class="opacity-50 font-medium">market</span></span>
     </a>
 
@@ -185,10 +185,10 @@ tailwind.config = {
 
     <!-- Mobile Search Container (Hidden by default) -->
     <div id="searchContainer" class="w-full absolute top-full left-0 right-0 transition-all duration-300 max-h-0 opacity-0 overflow-hidden z-[55] px-2">
-      <div class="mt-2 relative bg-surface-0/80 backdrop-blur-2xl border border-transparent shadow-xl rounded-2xl p-1.5">
-        <input type="text" id="mobileGlobalSearch" placeholder="Найти..." oninput="window.handleSearch(this.value)" class="w-full bg-white/50 border border-transparent rounded-xl py-2 pl-10 pr-4 text-sm font-bold focus:bg-surface-0 focus:outline-none transition-all">
+      <div class="mt-2 relative bg-surface-0/60 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl p-1.5">
+        <input type="text" id="mobileGlobalSearch" placeholder="Найти..." oninput="window.handleSearch(this.value)" class="w-full bg-surface-100/40 border border-transparent rounded-xl py-2 pl-10 pr-4 text-sm font-bold focus:bg-surface-0/60 focus:outline-none transition-all">
         <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 bg-surface-0/80 backdrop-blur-2xl rounded-2xl shadow-xl border border-transparent z-[100] max-h-[300px] overflow-y-auto w-full"></div>
+        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/5 z-[100] max-h-[300px] overflow-y-auto w-full"></div>
       </div>
     </div>
 
@@ -281,49 +281,60 @@ tailwind.config = {
 
 <main id="app" class="flex-1"></main>
 
-<footer class="bg-surface-100 text-surface-600 py-12 pb-24 md:pb-12 border-t border-surface-200">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-    <div class="md:col-span-1">
-      <div class="flex items-center gap-2 mb-4 group">
-        <img src="./public/logo_ic.png" alt="SotkaMarket" class="w-10 h-10 rounded-xl bg-surface-100 object-cover shadow-sm">
-        <span class="font-extrabold text-surface-900 text-xl tracking-tight">SotkaMarket</span>
+<footer class="py-12 pb-24 md:pb-12">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="bg-surface-200/10 backdrop-blur-2xl rounded-[3rem] p-8 md:p-12 shadow-sm border border-transparent">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-2 mb-6 group">
+            <img src="./public/logo_ic.png" alt="SotkaMarket" class="w-12 h-12 rounded-[1.25rem] bg-surface-0/40 object-cover shadow-sm transition-transform group-hover:rotate-6">
+            <span class="font-black text-surface-900 text-2xl tracking-tighter uppercase transition-colors group-hover:text-primary-600">Sotka<span class="opacity-40">market</span></span>
+          </div>
+          <p class="text-sm leading-relaxed mb-6 font-medium text-surface-500">Агрегатор цен на мобильную электронику от проверенных продавцов в Кыргызстане.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">📱</a>
+            <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">🔥</a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-surface-800 font-black mb-6 uppercase tracking-widest text-xs">Покупателям</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="#/catalog" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Каталог</a></li>
+            <li><a href="#/catalog?view=sellers" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Продавцы</a></li>
+            <li><a href="#" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Акции и скидки</a></li>
+            <li><a href="#" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Помощь</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-surface-800 font-black mb-6 uppercase tracking-widest text-xs">Партнерам</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="#" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Стать продавцом</a></li>
+            <li><a href="#" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">Правила</a></li>
+            <li><a href="#" class="text-surface-500 hover:text-primary-600 transition-colors uppercase tracking-tight">API интеграция</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-surface-800 font-black mb-6 uppercase tracking-widest text-xs">Контакты</h4>
+          <ul class="space-y-4 text-sm font-bold">
+            <li class="flex items-center gap-3 text-surface-500 transition-colors hover:text-surface-800">
+              <div class="w-8 h-8 rounded-xl bg-surface-0/40 flex items-center justify-center shadow-sm">📍</div>
+              Бишкек, Кыргызстан
+            </li>
+            <li class="flex items-center gap-3 text-surface-500 transition-colors hover:text-surface-800">
+              <div class="w-8 h-8 rounded-xl bg-surface-0/40 flex items-center justify-center shadow-sm">✉️</div>
+              <a href="mailto:info@sotka.kg">info@sotka.kg</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <p class="text-sm leading-relaxed mb-4">Агрегатор цен на мобильную электронику от проверенных продавцов в Кыргызстане.</p>
-      <div class="flex gap-3">
-        <a href="#" class="w-8 h-8 rounded-full bg-surface-200 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors">📱</a>
-        <a href="#" class="w-8 h-8 rounded-full bg-surface-200 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors">🔥</a>
+      
+      <div class="mt-12 pt-12 border-t border-surface-200/50 text-center text-[10px] font-black uppercase tracking-[0.2em] text-surface-400">
+        <p>&copy; 2026 SotkaMarket. Все права защищены. Цены не являются публичной офертой.</p>
       </div>
     </div>
-    
-    <div>
-      <h4 class="text-surface-800 font-bold mb-4">Покупателям</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#/catalog" class="hover:text-primary-600 transition-colors">Каталог</a></li>
-        <li><a href="#/catalog?view=sellers" class="hover:text-primary-600 transition-colors">Продавцы магазина</a></li>
-        <li><a href="#" class="hover:text-primary-600 transition-colors">Акции и скидки</a></li>
-        <li><a href="#" class="hover:text-primary-600 transition-colors">Как покупать безопасно</a></li>
-      </ul>
-    </div>
-    
-    <div>
-      <h4 class="text-surface-800 font-bold mb-4">Партнерам</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-primary-600 transition-colors">Как стать продавцом</a></li>
-        <li><a href="#" class="hover:text-primary-600 transition-colors">Правила для магазинов</a></li>
-        <li><a href="#" class="hover:text-primary-600 transition-colors">API для интеграции</a></li>
-      </ul>
-    </div>
-    
-    <div>
-      <h4 class="text-surface-800 font-bold mb-4">Контакты</h4>
-      <ul class="space-y-2 text-sm">
-        <li class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Кыргызстан, г. Бишкек</li>
-        <li class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> <a href="mailto:info@sotka.kg" class="hover:text-primary-600 transition-colors">info@sotka.kg</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-surface-200 text-center text-xs">
-    <p>&copy; 2026 SotkaMarket. Все права защищены. Цены не являются публичной офертой.</p>
   </div>
 </footer>
 

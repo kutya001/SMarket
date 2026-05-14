@@ -82,7 +82,7 @@ export function renderCatalogPage(app, params) {
         <!-- Desktop Sidebar (Only shows if view is 'products') -->
         ${State.catalogView === 'products' ? `
         <aside class="hidden md:block w-64 flex-shrink-0">
-          <div class="sticky top-20 bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-5">
+          <div class="sticky top-20 ui-island !p-5 !rounded-[2rem]">
             <div class="flex items-center justify-between mb-4">
               <h3 class="font-bold text-surface-800">Фильтры</h3>
               ${activeFilters.length > 0 ? `<button onclick="window.resetAllFilters()" class="text-xs text-primary-600 hover:text-primary-700">Сбросить</button>` : ''}
@@ -109,11 +109,11 @@ export function renderCatalogPage(app, params) {
                   if (catList.length === 0) return '';
                   return `
                     <div class="border border-transparent rounded-lg overflow-hidden">
-                      <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-50 p-2.5 text-xs font-black text-surface-800 hover:bg-surface-100 transition-colors uppercase tracking-widest">
+                      <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-0/40 p-2.5 text-xs font-black text-surface-800 hover:bg-surface-100 transition-colors uppercase tracking-widest">
                         <span class="flex items-center gap-2 text-primary-600">${cls.name}</span>
                         <svg class="chevron w-4 h-4 text-surface-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                       </button>
-                      <div class="px-3 py-2 space-y-1 bg-surface-0 border-t border-transparent">
+                      <div class="px-3 py-2 space-y-1 bg-surface-0/20 border-t border-transparent">
                         ${catList.map(cat => `
                           <label class="flex items-center gap-2 py-1 cursor-pointer text-[11px] font-bold text-surface-600 hover:text-surface-800 group transition-colors uppercase tracking-tight">
                             <input type="checkbox" ${State.filters.category.includes(cat.id)?'checked':''} onchange="window.updateFilter('category','${cat.id}',this.checked)" class="rounded border-surface-300 text-primary-600 focus:ring-primary-500 w-4 h-4">
@@ -238,7 +238,7 @@ export function setCatalogView(view) {
 function renderBrandCard(brand) {
   const brandProducts = PRODUCTS.filter(p => p.brand === brand.id);
   return `
-    <a href="#/catalog?brand=${brand.id}&view=products" class="bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-6 flex flex-col items-center justify-center hover:shadow-md transition-all hover:border-primary-300 group text-center">
+    <a href="#/catalog?brand=${brand.id}&view=products" class="ui-island-element flex flex-col items-center justify-center text-center group">
       <h3 class="font-black text-surface-800 text-center mb-1 group-hover:text-primary-600 transition-colors uppercase tracking-widest text-sm">${brand.name}</h3>
       <span class="text-[10px] uppercase font-bold text-surface-400">${brandProducts.length} товаров</span>
     </a>
@@ -254,7 +254,7 @@ function renderSellerCard(seller) {
   });
 
   return `
-    <div class="bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-5 hover:shadow-lg transition-all flex flex-col justify-between">
+    <div class="ui-island-element flex flex-col justify-between !p-5">
       <div>
         <div class="flex gap-4 items-center mb-4">
           <div class="w-14 h-14 bg-surface-100/50 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">${seller.logo}</div>

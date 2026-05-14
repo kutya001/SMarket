@@ -136,6 +136,44 @@ body { overflow-x: hidden; }
 [data-theme="red-dark"] input, [data-theme="red-dark"] select { background-color: var(--surface-50); color: var(--surface-900); border-color: var(--surface-200); }
 
 /* specific dark theme tweaks */
+/* Island UI Design System */
+.ui-island {
+    background-color: var(--surface-100);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 3rem;
+    padding: 2rem;
+    border: 1px solid transparent;
+}
+
+[data-theme="red-dark"] .ui-island {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.ui-island-element {
+    background-color: var(--surface-0);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-theme="red-dark"] .ui-island-element {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.03);
+}
+
+.ui-island-element:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+
+[data-theme="red-dark"] .ui-island-element:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
 [data-theme="red-dark"] .seo-block {
     background: linear-gradient(to bottom right, var(--surface-100), var(--surface-50));
     border-color: transparent;
