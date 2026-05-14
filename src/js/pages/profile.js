@@ -169,10 +169,10 @@ export function renderProfilePage(container) {
   `;
 
   container.innerHTML = `
-    <div class="bg-surface-50 py-6 md:py-10 min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="bg-surface-50 py-6 md:py-10 min-h-screen pb-safe pb-24">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 mb-24">
         
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-surface-100 relative overflow-hidden group">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 bg-surface-0/80 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] shadow-sm border border-surface-200/50 relative overflow-hidden group">
           <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-50 rounded-full blur-3xl opacity-50 group-hover:bg-primary-100 transition-colors pointer-events-none"></div>
           <div class="w-24 h-24 bg-gradient-to-br from-primary-500 to-amber-500 rounded-[1.5rem] flex items-center justify-center text-white text-4xl font-bold shadow-lg flex-shrink-0 z-10 rotate-3 group-hover:rotate-6 transition-transform">
             ${user.name ? user.name[0].toUpperCase() : (user.phone ? user.phone[user.phone.length - 1] : 'U')}
@@ -188,11 +188,11 @@ export function renderProfilePage(container) {
               ${user.city ? `<span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> ${user.city}</span>` : ''}
             </div>
           </div>
-          <button onclick="window.handleLogout()" class="mt-4 md:mt-0 px-6 py-3 bg-white border-2 border-red-100 text-red-600 rounded-xl font-bold hover:bg-red-50 hover:border-red-200 transition-colors flex-shrink-0 z-10">Выйти</button>
+          <button onclick="window.handleLogout()" class="mt-4 md:mt-0 px-6 py-3 bg-white/50 border-2 border-red-100 text-red-600 rounded-xl font-bold hover:bg-red-50 hover:border-red-200 transition-colors flex-shrink-0 z-10 backdrop-blur-sm">Выйти</button>
         </div>
 
-        <div class="bg-white rounded-[2rem] shadow-sm border border-surface-100 overflow-hidden">
-          <div class="flex overflow-x-auto custom-scrollbar border-b border-surface-100 sticky top-0 bg-white/80 backdrop-blur-md z-20">
+        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2.5rem] shadow-sm border border-surface-200/50 overflow-hidden">
+          <div class="flex overflow-x-auto custom-scrollbar border-b border-surface-100 sticky top-0 bg-surface-0/60 backdrop-blur-xl z-20">
             <button onclick="window.switchProfileTab('personal')" id="tab-btn-personal" class="profile-tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold border-b-2 border-primary-500 text-primary-600 transition-colors">Личные данные</button>
             <button onclick="window.switchProfileTab('purchases')" id="tab-btn-purchases" class="profile-tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold border-b-2 border-transparent text-surface-500 hover:text-surface-800 transition-colors">История покупок</button>
             <button onclick="window.switchProfileTab('browsing')" id="tab-btn-browsing" class="profile-tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold border-b-2 border-transparent text-surface-500 hover:text-surface-800 transition-colors">Недавно просмотренные</button>

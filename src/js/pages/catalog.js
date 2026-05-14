@@ -82,7 +82,7 @@ export function renderCatalogPage(app, params) {
         <!-- Desktop Sidebar (Only shows if view is 'products') -->
         ${State.catalogView === 'products' ? `
         <aside class="hidden md:block w-64 flex-shrink-0">
-          <div class="sticky top-20 bg-surface-0 rounded-2xl shadow-sm border border-surface-100 p-5">
+          <div class="sticky top-20 bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5">
             <div class="flex items-center justify-between mb-4">
               <h3 class="font-bold text-surface-800">Фильтры</h3>
               ${activeFilters.length > 0 ? `<button onclick="window.resetAllFilters()" class="text-xs text-primary-600 hover:text-primary-700">Сбросить</button>` : ''}
@@ -238,7 +238,7 @@ export function setCatalogView(view) {
 function renderBrandCard(brand) {
   const brandProducts = PRODUCTS.filter(p => p.brand === brand.id);
   return `
-    <a href="#/catalog?brand=${brand.id}&view=products" class="bg-surface-0 rounded-2xl shadow-sm border border-surface-100 p-6 flex flex-col items-center justify-center hover:shadow-md transition-all hover:border-primary-300 group">
+    <a href="#/catalog?brand=${brand.id}&view=products" class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-6 flex flex-col items-center justify-center hover:shadow-md transition-all hover:border-primary-300 group">
       <div class="text-4xl mb-3 transform group-hover:scale-110 transition-transform">${brand.icon || '🏷️'}</div>
       <h3 class="font-bold text-surface-800 text-center mb-1 group-hover:text-primary-600 transition-colors">${brand.name}</h3>
       <span class="text-xs text-surface-500">${brandProducts.length} товаров</span>
@@ -255,7 +255,7 @@ function renderSellerCard(seller) {
   });
 
   return `
-    <div class="bg-surface-0 rounded-2xl shadow-sm border border-surface-100 p-5 hover:shadow-lg transition-all flex flex-col justify-between">
+    <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5 hover:shadow-lg transition-all flex flex-col justify-between">
       <div>
         <div class="flex gap-4 items-center mb-4">
           <div class="w-14 h-14 bg-surface-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">${seller.logo}</div>

@@ -213,7 +213,7 @@ export function renderProductPage(app, slug, params) {
       <!-- Block 3: Specifications -->
       <div class="mb-10">
         <h2 class="text-2xl font-bold text-surface-800 mb-4">Характеристики</h2>
-        <div class="bg-white rounded-2xl shadow-sm border border-surface-100 overflow-hidden">
+        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 overflow-hidden">
           <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="divide-y divide-surface-100">
               ${specsLeft.map(([k,v]) => `
@@ -238,7 +238,7 @@ export function renderProductPage(app, slug, params) {
       <!-- Block 4: Description -->
       <div class="mb-10">
         <h2 class="text-2xl font-bold text-surface-800 mb-4">Описание</h2>
-        <div class="bg-white rounded-2xl shadow-sm border border-surface-100 p-5 md:p-8 prose prose-surface max-w-none">
+        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5 md:p-8 prose prose-surface max-w-none">
           <p class="text-surface-600 leading-relaxed">${product.description}</p>
         </div>
       </div>
@@ -248,7 +248,7 @@ export function renderProductPage(app, slug, params) {
         <h2 class="text-2xl font-bold text-surface-800 mb-4">Отзывы (${productReviews.length})</h2>
 
         <!-- Rating distribution -->
-        <div class="bg-white rounded-2xl shadow-sm border border-surface-100 p-5 mb-6">
+        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5 mb-6">
           <div class="flex flex-col md:flex-row gap-6">
             <div class="flex flex-col items-center min-w-[120px]">
               <div class="text-4xl font-bold text-surface-800">${product.rating}</div>
@@ -280,7 +280,7 @@ export function renderProductPage(app, slug, params) {
         <!-- Reviews list -->
         <div class="space-y-4">
           ${productReviews.length > 0 ? productReviews.map(r => `
-            <div class="bg-white rounded-2xl shadow-sm border border-surface-100 p-5">
+            <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5">
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-sm">${r.author[0]}</div>
@@ -321,7 +321,7 @@ export function renderOfferRow(offer, tabType) {
   };
 
   return `
-    <div class="bg-white rounded-xl shadow-sm border border-surface-100 p-4 md:p-5 hover:shadow-md transition-shadow cursor-pointer border-l-4 border-l-transparent hover:border-l-primary-500" 
+    <div class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm border border-surface-200/50 p-4 md:p-5 hover:shadow-md transition-shadow cursor-pointer border-l-4 border-l-transparent hover:border-l-primary-500" 
          onmouseenter="window.focusMapMarker('${seller.id}')" onclick="window.location.hash = '#/offer/${offer.id}'"
          itemscope itemtype="https://schema.org/Offer">
       <div class="flex flex-col md:flex-row md:items-center gap-4">

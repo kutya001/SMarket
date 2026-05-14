@@ -6,12 +6,17 @@ import { openAuthModal } from '../../auth.js';
 export function updateProfileButton() {
   const State = window.State;
   const btn = document.getElementById('profileBtn');
+  const btnMobile = document.getElementById('profileBtnMobile');
+  
+  const renderUser = State.user ? `<div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-sm uppercase">${State.user.name ? State.user.name[0] : (State.user.phone ? State.user.phone[State.user.phone.length - 1] : 'U')}</div>` : null;
+  const renderIcon = `<svg class="w-6 h-6 text-surface-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`;
+  const renderIconMobile = `<svg class="w-5 h-5 text-surface-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`;
+
   if (btn) {
-    if (State.user) {
-      btn.innerHTML = `<div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full flex items-center justify-center text-white text-sm font-bold uppercase">${State.user.name ? State.user.name[0] : 'U'}</div>`;
-    } else {
-      btn.innerHTML = `<svg class="w-6 h-6 text-surface-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`;
-    }
+    btn.innerHTML = State.user ? renderUser : renderIcon;
+  }
+  if (btnMobile) {
+    btnMobile.innerHTML = State.user ? `<div class="w-6 h-6 bg-gradient-to-br from-primary-500 to-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm uppercase">${State.user.name ? State.user.name[0] : (State.user.phone ? State.user.phone[State.user.phone.length - 1] : 'U')}</div>` : renderIconMobile;
   }
 }
 

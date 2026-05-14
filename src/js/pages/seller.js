@@ -11,7 +11,7 @@ const conditionLabels = {
 function renderSellerOfferCard(offer, product, variant) {
   const isPhone = product.category === 'smartphones';
   return `
-    <a href="#/offer/${offer.id}" class="bg-white rounded-xl shadow-sm border border-surface-100 p-4 hover:shadow-md transition-shadow block hover:border-primary-300">
+    <a href="#/offer/${offer.id}" class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm border border-surface-200/50 p-4 hover:shadow-md transition-shadow block hover:border-primary-300">
       <div class="flex justify-between items-start mb-2">
         <h4 class="font-semibold text-surface-800 leading-tight">${product.name} ${Object.values(variant.attributes).join(' ')}</h4>
         <div class="text-right flex-shrink-0 ml-2">
@@ -200,7 +200,7 @@ export function renderSellerPage(app, sellerId, params) {
 
     <div class="max-w-7xl mx-auto px-4 pb-12">
       <!-- Seller Header Profile -->
-      <div class="bg-surface-0 rounded-3xl p-6 md:p-8 shadow-sm border border-surface-100 flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 mt-4">
+      <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-sm border border-surface-200/50 flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 mt-4">
         <div class="w-24 h-24 bg-surface-100 rounded-2xl flex items-center justify-center text-5xl flex-shrink-0">
           ${seller.logo}
         </div>
@@ -263,7 +263,7 @@ export function renderSellerPage(app, sellerId, params) {
       <div id="seller-reviews" class="hidden">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Rating Summary -->
-          <div class="bg-surface-0 rounded-2xl p-6 shadow-sm border border-surface-100 flex flex-col items-center justify-center text-center">
+          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50 flex flex-col items-center justify-center text-center">
             <div class="text-5xl font-bold text-surface-800 mb-2">${seller.rating}</div>
             <div class="flex text-amber-400 text-xl mb-2">★★★★★</div>
             <div class="text-surface-500 text-sm">На основе ${seller.reviewsCount} отзывов</div>
@@ -272,7 +272,7 @@ export function renderSellerPage(app, sellerId, params) {
           <!-- Review List -->
           <div class="lg:col-span-2 space-y-4">
             ${sellerReviews.map(r => `
-              <div class="bg-surface-0 rounded-2xl p-6 shadow-sm border border-surface-100">
+              <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50">
                 <div class="flex items-center justify-between mb-3">
                   <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center font-bold text-surface-500">${r.user[0]}</div>

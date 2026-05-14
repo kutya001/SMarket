@@ -56,7 +56,7 @@ export function renderOfferPage(app, offerId, params) {
         
         <!-- Left Column: Details & Details -->
         <div class="lg:col-span-2 space-y-6">
-          <div class="bg-surface-0 rounded-2xl p-6 shadow-sm border border-surface-100">
+          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50">
             <h2 class="text-xl font-bold text-surface-800 mb-4">Информация о товаре</h2>
             <div class="grid relative grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="bg-surface-50 p-4 rounded-xl">
@@ -84,7 +84,7 @@ export function renderOfferPage(app, offerId, params) {
             </div>
           </div>
 
-          <div class="bg-surface-0 rounded-2xl p-6 shadow-sm border border-surface-100">
+          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50">
             <h2 class="text-xl font-bold text-surface-800 mb-4">Фотографии товара</h2>
             <div class="flex flex-wrap gap-4">
               ${imagesHtml}
@@ -94,7 +94,7 @@ export function renderOfferPage(app, offerId, params) {
 
         <!-- Right Column: Price & Seller -->
         <div class="space-y-6">
-          <div class="bg-surface-0 rounded-2xl p-6 shadow-sm border border-surface-100 sticky top-24">
+          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50 sticky top-24">
             <div class="mb-6">
               <span class="text-3xl font-bold text-surface-800">${offer.price.toLocaleString()} сом</span>
               ${offer.oldPrice ? `<span class="text-surface-400 line-through text-sm ml-2">${offer.oldPrice.toLocaleString()} сом</span>` : ''}
