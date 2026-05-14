@@ -1,0 +1,65 @@
+@supports (padding-top: env(safe-area-inset-top)) {
+  .pt-safe { padding-top: max(env(safe-area-inset-top), 1rem) !important; }
+  .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 1rem) !important; }
+}
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+}
+
+.animation-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Кастомные скроллбары */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Переопределение стилей Leaflet для соответствия дизайну */
+.leaflet-container {
+  font-family: inherit !important;
+  z-index: 1 !important; /* Уменьшаем z-index, чтобы не перекрывал Header */
+  border-radius: inherit;
+}

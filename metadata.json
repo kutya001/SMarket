@@ -1,0 +1,6 @@
+{
+  "name": "SotkaMarket",
+  "description": "Агрегатор цен на мобильные телефоны и аксессуары (модульный Vanilla JS проект).",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
