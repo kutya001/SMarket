@@ -16,8 +16,8 @@ export function renderProductCard(product) {
   const brandData = product.brand ? BRANDS.find(b => b.id === product.brand) : null;
 
   return `
-    <div class="product-card relative bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm hover:shadow-lg transition-all border border-surface-200/50 overflow-hidden group animate-fadeIn" itemscope itemtype="https://schema.org/Product">
-      <button onclick="event.preventDefault(); event.stopPropagation(); window.toggleFavorite('${product.id}')" class="absolute top-2 right-2 w-8 h-8 bg-surface-0/80 backdrop-blur rounded-full flex items-center justify-center hover:bg-surface-0 transition-colors shadow-sm z-10">
+    <div class="product-card relative bg-surface-0/60 backdrop-blur-2xl rounded-[2rem] shadow-sm hover:shadow-lg transition-all border border-transparent overflow-hidden group animate-fadeIn" itemscope itemtype="https://schema.org/Product">
+      <button onclick="event.preventDefault(); event.stopPropagation(); window.toggleFavorite('${product.id}')" class="absolute top-2 right-2 w-8 h-8 bg-surface-0/60 backdrop-blur rounded-full flex items-center justify-center hover:bg-surface-0 transition-colors shadow-sm z-10">
         <svg class="w-4 h-4 ${isFavorite(product.id)?'text-red-500 fill-current':'text-surface-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
       </button>
       <a href="#/product/${product.slug}" class="block h-full" onclick="window.trackEvent('product_view',{productId:'${product.id}'})">
@@ -26,7 +26,7 @@ export function renderProductCard(product) {
           ${product.label ? `<span class="absolute top-2 left-2 ${product.label==='Новинка'?'bg-accent-500':product.label==='Хит'?'bg-orange-500':'bg-green-500'} text-white text-xs font-bold px-2 py-1 rounded-lg">${product.label}</span>` : ''}
         </div>
         <div class="p-3 md:p-4">
-          ${brandData ? `<div class="text-xs text-surface-500 mb-1 flex items-center gap-1">${brandData.icon || ''} ${brandData.name}</div>` : ''}
+          ${brandData ? `<div class="text-[10px] uppercase font-black tracking-widest text-surface-400 mb-1 flex items-center gap-1">${brandData.name}</div>` : ''}
           <h3 class="text-sm font-medium text-surface-800 line-clamp-2 mb-1 group-hover:text-primary-600 transition-colors" itemprop="name">${product.name}</h3>
           <div class="flex items-center gap-1 mb-2">${stars}<span class="text-xs text-surface-400">(${product.reviewsCount})</span></div>
           <div class="flex items-end gap-2">

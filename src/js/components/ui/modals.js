@@ -174,16 +174,16 @@ export function renderOffcanvasFilters() {
             const catList = CATEGORIES.filter(c => c.classId === cls.id);
             if (catList.length === 0) return '';
             return `
-              <div class="border border-surface-100 rounded-lg overflow-hidden">
-                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-50 p-2 text-sm font-medium text-surface-800 hover:bg-surface-100 transition-colors">
-                  <span class="flex items-center gap-2 text-primary-600">${cls.icon} ${cls.name}</span>
+              <div class="border border-transparent rounded-lg overflow-hidden">
+                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-50 p-2 text-sm font-bold text-surface-800 hover:bg-surface-100 transition-colors">
+                  <span class="flex items-center gap-2 text-primary-600">${cls.name}</span>
                   <svg class="chevron w-4 h-4 text-surface-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div class="px-3 py-2 space-y-1 bg-surface-0 border-t border-surface-50">
+                <div class="px-3 py-2 space-y-1 bg-surface-0 border-t border-transparent">
                   ${catList.map(cat => `
-                    <label class="flex items-center gap-2 cursor-pointer text-sm text-surface-600 py-1 hover:text-surface-800 transition-colors">
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-bold text-surface-600 py-1 hover:text-surface-800 transition-colors">
                       <input type="checkbox" ${State.filters.category.includes(cat.id)?'checked':''} onchange="window.updateFilter('category','${cat.id}',this.checked)" class="rounded border-surface-300 text-primary-600 focus:ring-primary-500 w-4 h-4">
-                      ${cat.icon} <span class="flex-1">${cat.name}</span>
+                      <span class="flex-1 uppercase text-[10px] tracking-tight">${cat.name}</span>
                     </label>
                   `).join('')}
                 </div>
@@ -264,83 +264,73 @@ export function toggleMobileMenu() {
   container.innerHTML = `
     <div class="px-4 py-4 space-y-6 pb-24">
       
-      <!-- Brands Island -->
-      <div class="bg-surface-0/90 backdrop-blur-md rounded-3xl border border-surface-200/50 shadow-lg p-5">
+      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-3xl shadow-sm">🏷️</div>
           <h4 class="text-base font-bold text-surface-800">Бренды</h4>
         </div>
         <div class="grid grid-cols-3 gap-3">
-          <a href="#/catalog?brand=apple" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
-            <span class="text-2xl mb-1">🍎</span>
-            <span class="text-[10px] sm:text-xs font-semibold text-surface-700">Apple</span>
+          <a href="#/catalog?brand=apple" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Apple</span>
           </a>
-          <a href="#/catalog?brand=samsung" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
-            <span class="text-2xl font-bold text-blue-600 mb-1">S</span>
-            <span class="text-[10px] sm:text-xs font-semibold text-surface-700">Samsung</span>
+          <a href="#/catalog?brand=samsung" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Samsung</span>
           </a>
-          <a href="#/catalog?brand=xiaomi" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
-            <span class="text-2xl font-bold text-orange-500 mb-1">MI</span>
-            <span class="text-[10px] sm:text-xs font-semibold text-surface-700">Xiaomi</span>
+          <a href="#/catalog?brand=xiaomi" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Xiaomi</span>
           </a>
         </div>
       </div>
 
       <!-- Devices Island -->
-      <div class="bg-surface-0/90 backdrop-blur-md rounded-3xl border border-surface-200/50 shadow-lg p-5">
+      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-3xl shadow-sm">📱</div>
           <h4 class="text-base font-bold text-surface-800">Устройства</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-3">
-          <a href="#/catalog?category=smartphones" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-surface-100">
-             <span class="text-sm font-semibold text-surface-700">Смартфоны</span>
+          <a href="#/catalog?category=smartphones" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-transparent">
+             <span class="text-xs font-bold text-surface-700 uppercase">Смартфоны</span>
           </a>
-          <a href="#/catalog?category=phones" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-surface-100">
-             <span class="text-sm font-semibold text-surface-700">Кнопочные</span>
+          <a href="#/catalog?category=phones" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-transparent">
+             <span class="text-xs font-bold text-surface-700 uppercase">Кнопочные</span>
           </a>
         </div>
         
         <div class="grid grid-cols-3 gap-2">
-          <a href="#/catalog?class=accessories" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 shrink-0">
-            <span class="text-xl mb-1">🎧</span><span class="text-[10px] text-surface-600">Аксессуары</span>
+          <a href="#/catalog?class=accessories" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+            <span class="text-[10px] font-bold text-surface-600 uppercase">Аксессуары</span>
           </a>
-          <a href="#/catalog?class=services" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 shrink-0">
-            <span class="text-xl mb-1">🛠️</span><span class="text-[10px] text-surface-600">Услуги</span>
+          <a href="#/catalog?class=services" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+            <span class="text-[10px] font-bold text-surface-600 uppercase">Услуги</span>
           </a>
-          <a href="#/catalog?class=parts" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 shrink-0">
-            <span class="text-xl mb-1">⚙️</span><span class="text-[10px] text-surface-600">Запчасти</span>
+          <a href="#/catalog?class=parts" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+            <span class="text-[10px] font-bold text-surface-600 uppercase">Запчасти</span>
           </a>
         </div>
       </div>
 
       <!-- Stores Island -->
-      <div class="bg-surface-0/90 backdrop-blur-md rounded-3xl border border-surface-200/50 shadow-lg p-5">
+      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-3xl shadow-sm">🏪</div>
           <h4 class="text-base font-bold text-surface-800">Магазины</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-2">
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-white border border-surface-200 rounded-[1.2rem] hover:border-amber-400">
-            <span class="text-sm font-bold text-surface-800">iStore</span>
-            <span class="text-[10px] text-surface-500">Apple Reseller</span>
+          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-100/50 border border-transparent rounded-[1.2rem] hover:bg-surface-200/50 transition-all">
+            <span class="text-sm font-bold text-surface-800 uppercase">iStore</span>
           </a>
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center p-3 bg-white border border-surface-200 rounded-[1.2rem] hover:border-amber-400">
-            <span class="text-sm font-bold text-surface-800">MiStore</span>
-            <span class="text-[10px] text-surface-500">Офиц. магазин</span>
+          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-100/50 border border-transparent rounded-[1.2rem] hover:bg-surface-200/50 transition-all">
+            <span class="text-sm font-bold text-surface-800 uppercase">MiStore</span>
           </a>
         </div>
-        <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="block text-center text-xs font-semibold text-primary-600 py-2">Все магазины →</a>
+        <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="block text-center text-xs font-black text-primary-600 py-2 uppercase tracking-widest">Все магазины →</a>
       </div>
 
       <!-- Categories Small Cards -->
-      <div class="bg-surface-0/90 backdrop-blur-md rounded-3xl border border-surface-200/50 shadow-lg p-5">
-         <h4 class="text-sm font-bold text-surface-800 mb-3 px-1">Все категории</h4>
+      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
+         <h4 class="text-sm font-bold text-surface-800 mb-3 px-1 uppercase tracking-tight">Все категории</h4>
          <div class="grid grid-cols-2 gap-2">
             ${CATEGORIES.map(cat => `
-              <a href="#/catalog?category=${cat.id}" onclick="window.closeOffcanvas()" class="flex items-center gap-2 p-2 bg-surface-50 rounded-xl hover:bg-surface-100 transition-colors">
-                <span class="text-lg">${cat.icon}</span>
-                <span class="text-xs font-medium text-surface-700 leading-tight">${cat.name}</span>
+              <a href="#/catalog?category=${cat.id}" onclick="window.closeOffcanvas()" class="flex items-center justify-center p-3 bg-surface-50 rounded-xl hover:bg-surface-100 transition-colors">
+                <span class="text-[10px] font-bold text-surface-700 leading-tight uppercase text-center">${cat.name}</span>
               </a>
             `).join('')}
          </div>

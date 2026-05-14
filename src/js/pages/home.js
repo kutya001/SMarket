@@ -53,11 +53,10 @@ export function renderHomePage(app) {
     <!-- Categories -->
     <section class="max-w-7xl mx-auto px-4 py-6 md:py-8">
       <h2 class="text-2xl font-bold text-surface-800 mb-6">Популярные категории</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 text-center">
         ${CATEGORIES.map(cat => `
-          <a href="#/catalog?category=${cat.id}" class="group bg-surface-0 rounded-2xl p-4 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 border border-surface-100">
-            <div class="text-3xl mb-2 text-center">${cat.icon}</div>
-            <p class="text-sm font-medium text-surface-700 text-center group-hover:text-primary-600 transition-colors">${cat.name}</p>
+          <a href="#/catalog?category=${cat.id}" class="group bg-surface-0/60 backdrop-blur-xl rounded-2xl p-4 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent flex items-center justify-center">
+            <p class="text-sm font-bold text-surface-700 text-center group-hover:text-primary-600 transition-colors uppercase tracking-tight">${cat.name}</p>
           </a>
         `).join('')}
       </div>
@@ -99,8 +98,8 @@ export function renderHomePage(app) {
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         ${SELLERS.slice(0, 3).map(seller => `
-          <a href="#/seller/${seller.id}" class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] p-5 shadow-sm hover:shadow-lg transition-all border border-surface-200/50 flex items-center gap-4 group">
-            <div class="w-16 h-16 bg-surface-100 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+          <a href="#/seller/${seller.id}" class="bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] p-5 shadow-sm hover:shadow-lg transition-all border border-transparent flex items-center gap-4 group">
+            <div class="w-16 h-16 bg-surface-100/50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
               ${seller.logo}
             </div>
             <div>
@@ -120,11 +119,11 @@ export function renderHomePage(app) {
 
     <!-- SEO Block -->
     <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
-      <div class="seo-block bg-gradient-to-br from-primary-50/80 to-accent-50/80 backdrop-blur-xl rounded-[2rem] p-6 md:p-10 border border-primary-200/50 shadow-sm">
+      <div class="seo-block bg-surface-0/60 backdrop-blur-3xl rounded-[2.5rem] p-6 md:p-10 border border-transparent shadow-sm">
         <h2 class="text-xl md:text-2xl font-bold text-surface-800 mb-4">SotkaMarket — агрегатор цен на телефоны в Кыргызстане</h2>
         <p class="text-surface-600 text-sm md:text-base leading-relaxed mb-4">Сравнивайте цены на мобильные телефоны, планшеты и аксессуары от проверенных продавцов Бишкека. Мы собираем предложения как для новых, так и для б/у устройств, помогая вам найти лучшую цену.</p>
-        <div class="flex flex-wrap gap-2">
-          ${CATEGORIES.map(cat => `<a href="#/catalog?category=${cat.id}" class="seo-category-link bg-surface-0/80 px-3 py-1.5 rounded-lg text-sm text-surface-600 hover:text-primary-600 hover:bg-surface-0 transition-colors border border-primary-100/50">${cat.icon} ${cat.name}</a>`).join('')}
+        <div class="flex flex-wrap gap-2 text-center justify-center">
+          ${CATEGORIES.map(cat => `<a href="#/catalog?category=${cat.id}" class="seo-category-link bg-surface-0/60 px-3 py-1.5 rounded-lg text-xs font-bold text-surface-600 hover:text-primary-600 hover:bg-surface-0 transition-colors border border-transparent uppercase tracking-tight">${cat.name}</a>`).join('')}
         </div>
       </div>
     </section>
@@ -134,11 +133,11 @@ export function renderHomePage(app) {
       <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
         <h2 class="text-2xl font-bold text-surface-800">📍 Продавцы на карте</h2>
         <div class="relative w-full md:w-80">
-          <input type="text" id="homeMapSearch" placeholder="Поиск телефона или магазина..." oninput="window.handleHomeMapSearch()" class="w-full bg-surface-0/80 backdrop-blur-xl border border-surface-200/50 rounded-[1.2rem] py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all shadow-sm">
+          <input type="text" id="homeMapSearch" placeholder="Поиск телефона или магазина..." oninput="window.handleHomeMapSearch()" class="w-full bg-surface-0/80 backdrop-blur-xl border border-transparent rounded-[1.2rem] py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all shadow-sm">
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
       </div>
-      <div id="homeGlobalMap" class="w-full h-72 md:h-[400px] bg-surface-200 rounded-2xl overflow-hidden border border-surface-200 shadow-sm z-10 relative"></div>
+      <div id="homeGlobalMap" class="w-full h-72 md:h-[400px] bg-surface-200 rounded-2xl overflow-hidden border border-transparent shadow-sm z-10 relative"></div>
     </section>
   `;
 

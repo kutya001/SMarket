@@ -11,7 +11,7 @@ const conditionLabels = {
 function renderSellerOfferCard(offer, product, variant) {
   const isPhone = product.category === 'smartphones';
   return `
-    <a href="#/offer/${offer.id}" class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm border border-surface-200/50 p-4 hover:shadow-md transition-shadow block hover:border-primary-300">
+    <a href="#/offer/${offer.id}" class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm border border-transparent p-4 hover:shadow-md transition-shadow block hover:border-primary-300">
       <div class="flex justify-between items-start mb-2">
         <h4 class="font-semibold text-surface-800 leading-tight">${product.name} ${Object.values(variant.attributes).join(' ')}</h4>
         <div class="text-right flex-shrink-0 ml-2">
@@ -20,24 +20,24 @@ function renderSellerOfferCard(offer, product, variant) {
         </div>
       </div>
       <div class="text-sm text-surface-600 space-y-1 mb-3">
-        <div class="flex justify-between gap-4 border-b border-surface-50 pb-1">
+        <div class="flex justify-between gap-4 border-b border-transparent pb-1">
           <span>Состояние:</span> 
           <span class="font-medium text-right">${conditionLabels[offer.condition] || 'Неизвестно'}</span>
         </div>
         ${offer.batteryHealth ? `
-        <div class="flex justify-between gap-4 border-b border-surface-50 pb-1">
+        <div class="flex justify-between gap-4 border-b border-transparent pb-1">
           <span>Аккумулятор:</span> 
           <span class="font-medium">${offer.batteryHealth}%</span>
         </div>` : ''}
         ${isPhone && offer.imei ? `
-        <div class="flex justify-between gap-4 border-b border-surface-50 pb-1">
+        <div class="flex justify-between gap-4 border-b border-transparent pb-1">
           <span>IMEI:</span> 
           <span class="font-mono text-xs font-medium bg-surface-50 px-1 rounded">${offer.imei}</span>
         </div>` : ''}
       </div>
       <div class="flex flex-wrap gap-2 mt-2">
         ${offer.usedImages && offer.usedImages.length > 0 
-          ? offer.usedImages.map(img => `<img src="${img}" class="w-12 h-12 object-cover rounded-lg border border-surface-200" alt="Фото товара">`).join('')
+          ? offer.usedImages.map(img => `<img src="${img}" class="w-12 h-12 object-cover rounded-lg border border-transparent" alt="Фото товара">`).join('')
           : `<span class="text-xs text-surface-400 italic">Без реальных фото</span>`
         }
       </div>
@@ -59,8 +59,8 @@ function renderNamesGrouped(sellerProducts) {
     if (classProducts.length === 0) return;
     
     html += `<div class="mb-8">
-      <h2 class="text-xl font-bold text-surface-800 mb-4 flex items-center gap-2 border-b border-surface-200 pb-2">
-        ${cls.icon} ${cls.name}
+      <h2 class="text-xl font-bold text-surface-800 mb-4 flex items-center gap-2 border-b border-transparent pb-2">
+        ${cls.name}
       </h2>
     `;
     
@@ -72,7 +72,7 @@ function renderNamesGrouped(sellerProducts) {
       html += `
         <div class="mb-8 ml-4">
           <h3 class="text-lg font-semibold text-surface-700 mb-4 flex items-center gap-2">
-            ${cat.icon} ${cat.name}
+            ${cat.name}
           </h3>
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 ml-4">
             ${typeProducts.map(p => renderProductCard(p)).join('')}
@@ -200,7 +200,7 @@ export function renderSellerPage(app, sellerId, params) {
 
     <div class="max-w-7xl mx-auto px-4 pb-12">
       <!-- Seller Header Profile -->
-      <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-sm border border-surface-200/50 flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 mt-4">
+      <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-sm border border-transparent flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 mt-4">
         <div class="w-24 h-24 bg-surface-100 rounded-2xl flex items-center justify-center text-5xl flex-shrink-0">
           ${seller.logo}
         </div>
@@ -234,7 +234,7 @@ export function renderSellerPage(app, sellerId, params) {
 
       <!-- Seller Tabs -->
       <div class="mb-8">
-        <div class="border-b border-surface-200">
+        <div class="border-b border-transparent">
           <nav class="-mb-px flex gap-6 overflow-x-auto" aria-label="Tabs">
             <button onclick="document.getElementById('seller-products').classList.remove('hidden'); document.getElementById('seller-offers').classList.add('hidden'); document.getElementById('seller-reviews').classList.add('hidden'); this.classList.add('text-primary-600', 'border-primary-600'); this.classList.remove('text-surface-500', 'border-transparent'); this.nextElementSibling.classList.add('text-surface-500', 'border-transparent'); this.nextElementSibling.classList.remove('text-primary-600', 'border-primary-600'); this.nextElementSibling.nextElementSibling.classList.add('text-surface-500', 'border-transparent'); this.nextElementSibling.nextElementSibling.classList.remove('text-primary-600', 'border-primary-600');" class="text-primary-600 border-primary-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors">
               Наименования (${sellerProducts.length})
@@ -263,7 +263,7 @@ export function renderSellerPage(app, sellerId, params) {
       <div id="seller-reviews" class="hidden">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Rating Summary -->
-          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50 flex flex-col items-center justify-center text-center">
+          <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-transparent flex flex-col items-center justify-center text-center">
             <div class="text-5xl font-bold text-surface-800 mb-2">${seller.rating}</div>
             <div class="flex text-amber-400 text-xl mb-2">★★★★★</div>
             <div class="text-surface-500 text-sm">На основе ${seller.reviewsCount} отзывов</div>
@@ -272,7 +272,7 @@ export function renderSellerPage(app, sellerId, params) {
           <!-- Review List -->
           <div class="lg:col-span-2 space-y-4">
             ${sellerReviews.map(r => `
-              <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-surface-200/50">
+              <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-sm border border-transparent">
                 <div class="flex items-center justify-between mb-3">
                   <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center font-bold text-surface-500">${r.user[0]}</div>
@@ -288,7 +288,7 @@ export function renderSellerPage(app, sellerId, params) {
                 <p class="text-surface-600 text-sm leading-relaxed">${r.text}</p>
               </div>
             `).join('')}
-            <button class="w-full py-3 text-primary-600 font-medium hover:bg-surface-50 rounded-xl transition-colors border border-surface-200">Показать еще отзывы</button>
+            <button class="w-full py-3 text-primary-600 font-medium hover:bg-surface-50 rounded-xl transition-colors border border-transparent">Показать еще отзывы</button>
           </div>
         </div>
       </div>

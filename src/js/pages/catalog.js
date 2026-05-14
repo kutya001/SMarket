@@ -71,10 +71,10 @@ export function renderCatalogPage(app, params) {
     <div class="max-w-7xl mx-auto px-4 pb-8">
       
       <!-- Catalog Tabs: Products / Sellers / Brands -->
-      <div class="flex items-center gap-2 mb-6 bg-surface-100 p-1.5 rounded-xl w-max overflow-x-auto">
-        <button onclick="window.setCatalogView('products')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'products' ? 'bg-surface-0 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Товары</button>
-        <button onclick="window.setCatalogView('sellers')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'sellers' ? 'bg-surface-0 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Продавцы</button>
-        <button onclick="window.setCatalogView('brands')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'brands' ? 'bg-surface-0 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Бренды</button>
+      <div class="flex items-center gap-2 mb-6 bg-surface-100/50 backdrop-blur-xl p-1.5 rounded-xl w-max overflow-x-auto border border-transparent">
+        <button onclick="window.setCatalogView('products')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'products' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Товары</button>
+        <button onclick="window.setCatalogView('sellers')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'sellers' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Продавцы</button>
+        <button onclick="window.setCatalogView('brands')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'brands' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Бренды</button>
       </div>
 
       <div class="flex flex-col md:flex-row gap-6">
@@ -82,7 +82,7 @@ export function renderCatalogPage(app, params) {
         <!-- Desktop Sidebar (Only shows if view is 'products') -->
         ${State.catalogView === 'products' ? `
         <aside class="hidden md:block w-64 flex-shrink-0">
-          <div class="sticky top-20 bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5">
+          <div class="sticky top-20 bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-5">
             <div class="flex items-center justify-between mb-4">
               <h3 class="font-bold text-surface-800">Фильтры</h3>
               ${activeFilters.length > 0 ? `<button onclick="window.resetAllFilters()" class="text-xs text-primary-600 hover:text-primary-700">Сбросить</button>` : ''}
@@ -108,14 +108,14 @@ export function renderCatalogPage(app, params) {
                   const catList = CATEGORIES.filter(c => c.classId === cls.id);
                   if (catList.length === 0) return '';
                   return `
-                    <div class="border border-surface-100 rounded-lg overflow-hidden">
-                      <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-50 p-2 text-sm font-medium text-surface-800 hover:bg-surface-100 transition-colors">
-                        <span class="flex items-center gap-2 text-primary-600">${cls.icon} ${cls.name}</span>
+                    <div class="border border-transparent rounded-lg overflow-hidden">
+                      <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between bg-surface-50 p-2.5 text-xs font-black text-surface-800 hover:bg-surface-100 transition-colors uppercase tracking-widest">
+                        <span class="flex items-center gap-2 text-primary-600">${cls.name}</span>
                         <svg class="chevron w-4 h-4 text-surface-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                       </button>
-                      <div class="px-3 py-2 space-y-1 bg-surface-0 border-t border-surface-50">
+                      <div class="px-3 py-2 space-y-1 bg-surface-0 border-t border-transparent">
                         ${catList.map(cat => `
-                          <label class="flex items-center gap-2 py-1 cursor-pointer text-sm text-surface-600 hover:text-surface-800 group transition-colors">
+                          <label class="flex items-center gap-2 py-1 cursor-pointer text-[11px] font-bold text-surface-600 hover:text-surface-800 group transition-colors uppercase tracking-tight">
                             <input type="checkbox" ${State.filters.category.includes(cat.id)?'checked':''} onchange="window.updateFilter('category','${cat.id}',this.checked)" class="rounded border-surface-300 text-primary-600 focus:ring-primary-500 w-4 h-4">
                             <span class="group-hover:text-primary-600 flex-1">${cat.name}</span>
                           </label>
@@ -132,9 +132,9 @@ export function renderCatalogPage(app, params) {
               <h4 class="text-sm font-semibold text-surface-700 mb-2">Бренд</h4>
               <div class="max-h-56 overflow-y-auto space-y-1 pr-2 custom-scrollbar">
                 ${BRANDS.map(brand => `
-                  <label class="flex items-center gap-2 py-1 cursor-pointer text-sm text-surface-600 hover:text-surface-800 group transition-colors">
+                  <label class="flex items-center gap-2 py-1 cursor-pointer text-[11px] font-bold text-surface-600 hover:text-surface-800 group transition-colors uppercase tracking-tight">
                     <input type="checkbox" ${State.filters.brand.includes(brand.id)?'checked':''} onchange="window.updateFilter('brand','${brand.id}',this.checked)" class="rounded border-surface-300 text-primary-600 focus:ring-primary-500 w-4 h-4">
-                    <span class="flex-1 group-hover:text-primary-600">${brand.icon} ${brand.name}</span>
+                    <span class="flex-1 group-hover:text-primary-600">${brand.name}</span>
                   </label>
                 `).join('')}
               </div>
@@ -238,10 +238,9 @@ export function setCatalogView(view) {
 function renderBrandCard(brand) {
   const brandProducts = PRODUCTS.filter(p => p.brand === brand.id);
   return `
-    <a href="#/catalog?brand=${brand.id}&view=products" class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-6 flex flex-col items-center justify-center hover:shadow-md transition-all hover:border-primary-300 group">
-      <div class="text-4xl mb-3 transform group-hover:scale-110 transition-transform">${brand.icon || '🏷️'}</div>
-      <h3 class="font-bold text-surface-800 text-center mb-1 group-hover:text-primary-600 transition-colors">${brand.name}</h3>
-      <span class="text-xs text-surface-500">${brandProducts.length} товаров</span>
+    <a href="#/catalog?brand=${brand.id}&view=products" class="bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-6 flex flex-col items-center justify-center hover:shadow-md transition-all hover:border-primary-300 group text-center">
+      <h3 class="font-black text-surface-800 text-center mb-1 group-hover:text-primary-600 transition-colors uppercase tracking-widest text-sm">${brand.name}</h3>
+      <span class="text-[10px] uppercase font-bold text-surface-400">${brandProducts.length} товаров</span>
     </a>
   `;
 }
@@ -255,10 +254,10 @@ function renderSellerCard(seller) {
   });
 
   return `
-    <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-surface-200/50 p-5 hover:shadow-lg transition-all flex flex-col justify-between">
+    <div class="bg-surface-0/60 backdrop-blur-2xl rounded-[2.5rem] shadow-sm border border-transparent p-5 hover:shadow-lg transition-all flex flex-col justify-between">
       <div>
         <div class="flex gap-4 items-center mb-4">
-          <div class="w-14 h-14 bg-surface-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">${seller.logo}</div>
+          <div class="w-14 h-14 bg-surface-100/50 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">${seller.logo}</div>
           <div>
             <h3 class="font-bold text-surface-800 text-lg flex items-center gap-1">
               ${seller.name}
@@ -270,16 +269,16 @@ function renderSellerCard(seller) {
             </div>
           </div>
         </div>
-        <div class="text-sm text-surface-600 mb-2 flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          г. Бишкек
+        <div class="text-[11px] font-bold uppercase tracking-tight text-surface-500 mb-2 flex items-center gap-2">
+          <svg class="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Бишкек
         </div>
-        <div class="text-sm text-surface-600 mb-4 flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          В наличии: ${uniqueProducts.size} товаров
+        <div class="text-[11px] font-bold uppercase tracking-tight text-surface-500 mb-4 flex items-center gap-2">
+          <svg class="w-3 h-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          ${uniqueProducts.size} товаров
         </div>
       </div>
-      <a href="#/seller/${seller.id}" class="block text-center w-full bg-primary-50 text-primary-700 py-2.5 rounded-xl font-medium hover:bg-primary-100 transition-colors">Перейти к продавцу</a>
+      <a href="#/seller/${seller.id}" class="block text-center w-full bg-primary-600 text-white py-2.5 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-primary-700 transition-colors shadow-sm">Перейти</a>
     </div>
   `;
 }
