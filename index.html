@@ -5,10 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>SotkaMarket — Каталог телефонов и аксессуаров</title>
 <meta name="description" content="Сравните цены на мобильные телефоны, планшеты и аксессуары. Агрегатор предложений от проверенных продавцов.">
-<link rel="icon" href="./logo_ic.png">
+<link rel="icon" href="./public/logo_ic.png">
 
 <!-- Font -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.19/index.css">
+
+<!-- Tailwind CSS CDN -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: { 50: 'var(--primary-50)', 100: 'var(--primary-100)', 200: 'var(--primary-200)', 300: 'var(--primary-300)', 400: 'var(--primary-400)', 500: 'var(--primary-500)', 600: 'var(--primary-600)', 700: 'var(--primary-700)', 800: 'var(--primary-800)', 900: 'var(--primary-900)' },
+        accent: { 50: 'var(--accent-50)', 100: 'var(--accent-100)', 200: 'var(--accent-200)', 300: 'var(--accent-300)', 400: 'var(--accent-400)', 500: 'var(--accent-500)', 600: 'var(--accent-600)', 700: 'var(--accent-700)', 800: 'var(--accent-800)', 900: 'var(--accent-900)' },
+        surface: { 0: 'var(--surface-0)', 50: 'var(--surface-50)', 100: 'var(--surface-100)', 200: 'var(--surface-200)', 300: 'var(--surface-300)', 400: 'var(--surface-400)', 500: 'var(--surface-500)', 600: 'var(--surface-600)', 700: 'var(--surface-700)', 800: 'var(--surface-800)', 900: 'var(--surface-900)' }
+      }
+    }
+  }
+}
+</script>
 
 <!-- Leaflet CSS & JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -73,9 +91,9 @@
       <!-- Center Logo & Search -->
       <div class="flex items-center justify-center gap-1.5 shrink-0 h-full sm:h-auto">
         <a href="#/" class="flex items-center gap-1.5 group bg-surface-0/90 sm:bg-transparent backdrop-blur-xl sm:backdrop-blur-none border border-surface-200/50 sm:border-transparent shadow-sm sm:shadow-none h-full px-3 sm:px-0 rounded-[1.2rem] sm:rounded-none shrink-0 pointer-events-auto">
-          <img src="./logo_full.png" alt="SotkaMarket" class="h-10 rounded-xl object-contain group-hover:scale-105 transition-transform hidden sm:block">
+          <img src="./public/logo_full.png" alt="SotkaMarket" class="h-10 rounded-xl object-contain group-hover:scale-105 transition-transform hidden sm:block">
           <div class="sm:hidden flex items-center gap-2">
-            <img src="./logo_ic.png" alt="SotkaMarket" class="w-9 h-9 rounded-xl bg-surface-100 object-cover group-hover:scale-105 transition-transform shadow-sm">
+            <img src="./public/logo_ic.png" alt="SotkaMarket" class="w-9 h-9 rounded-xl bg-surface-100 object-cover group-hover:scale-105 transition-transform shadow-sm">
             <span class="font-extrabold text-surface-900 text-[18px] tracking-tight shrink-0 flex items-center pt-0.5">SotkaMarket</span>
           </div>
         </a>
@@ -242,7 +260,7 @@
   <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
     <div class="md:col-span-1">
       <div class="flex items-center gap-2 mb-4 group">
-        <img src="./logo_full.png" alt="SotkaMarket" class="h-10 rounded-xl object-contain">
+        <img src="./public/logo_full.png" alt="SotkaMarket" class="h-10 rounded-xl object-contain">
       </div>
       <p class="text-sm leading-relaxed mb-4">Агрегатор цен на мобильную электронику от проверенных продавцов в Кыргызстане.</p>
       <div class="flex gap-3">
