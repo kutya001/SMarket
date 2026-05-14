@@ -254,7 +254,7 @@ export function toggleMobileMenu() {
     if(cls.id === 'parts') icon = '⚙️';
     
     return `
-      <a href="#/catalog?class=${cls.id}" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-4 bg-surface-50 rounded-2xl hover:bg-surface-100 transition-colors border border-surface-100/50">
+      <a href="#/catalog?class=${cls.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-4 !rounded-2xl">
         <span class="text-3xl mb-2">${icon}</span>
         <span class="text-xs font-semibold text-surface-700 text-center">${cls.name}</span>
       </a>
@@ -264,72 +264,72 @@ export function toggleMobileMenu() {
   container.innerHTML = `
     <div class="px-4 py-4 space-y-6 pb-24">
       
-      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
+      <div class="ui-island !p-5 !rounded-3xl">
         <div class="flex items-center gap-3 mb-4">
-          <h4 class="text-base font-bold text-surface-800">Бренды</h4>
+          <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Бренды</h4>
         </div>
         <div class="grid grid-cols-3 gap-3">
-          <a href="#/catalog?brand=apple" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+          <a href="#/catalog?brand=apple" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
             <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Apple</span>
           </a>
-          <a href="#/catalog?brand=samsung" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+          <a href="#/catalog?brand=samsung" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
             <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Samsung</span>
           </a>
-          <a href="#/catalog?brand=xiaomi" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors">
+          <a href="#/catalog?brand=xiaomi" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
             <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Xiaomi</span>
           </a>
         </div>
       </div>
 
       <!-- Devices Island -->
-      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
+      <div class="ui-island !p-5 !rounded-3xl">
         <div class="flex items-center gap-3 mb-4">
-          <h4 class="text-base font-bold text-surface-800">Устройства</h4>
+          <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Устройства</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-3">
-          <a href="#/catalog?category=smartphones" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-transparent">
+          <a href="#/catalog?category=smartphones" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
              <span class="text-xs font-bold text-surface-700 uppercase">Смартфоны</span>
           </a>
-          <a href="#/catalog?category=phones" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-50 rounded-[1.2rem] hover:bg-surface-100 transition-colors border border-transparent">
+          <a href="#/catalog?category=phones" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
              <span class="text-xs font-bold text-surface-700 uppercase">Кнопочные</span>
           </a>
         </div>
         
         <div class="grid grid-cols-3 gap-2">
-          <a href="#/catalog?class=accessories" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+          <a href="#/catalog?class=accessories" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
             <span class="text-[10px] font-bold text-surface-600 uppercase">Аксессуары</span>
           </a>
-          <a href="#/catalog?class=services" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+          <a href="#/catalog?class=services" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
             <span class="text-[10px] font-bold text-surface-600 uppercase">Услуги</span>
           </a>
-          <a href="#/catalog?class=parts" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-2 bg-surface-50 rounded-xl hover:bg-amber-50 transition-colors">
+          <a href="#/catalog?class=parts" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
             <span class="text-[10px] font-bold text-surface-600 uppercase">Запчасти</span>
           </a>
         </div>
       </div>
 
       <!-- Stores Island -->
-      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
+      <div class="ui-island !p-5 !rounded-3xl">
         <div class="flex items-center gap-3 mb-4">
-          <h4 class="text-base font-bold text-surface-800">Магазины</h4>
+          <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Магазины</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-2">
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-100/50 border border-transparent rounded-[1.2rem] hover:bg-surface-200/50 transition-all">
+          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
             <span class="text-sm font-bold text-surface-800 uppercase">iStore</span>
           </a>
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="flex flex-col items-center justify-center p-3 bg-surface-100/50 border border-transparent rounded-[1.2rem] hover:bg-surface-200/50 transition-all">
+          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
             <span class="text-sm font-bold text-surface-800 uppercase">MiStore</span>
           </a>
         </div>
-        <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="block text-center text-xs font-black text-primary-600 py-2 uppercase tracking-widest">Все магазины →</a>
+        <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="block text-center text-xs font-black text-primary-600 py-2 uppercase tracking-widest hover:underline transition-all">Все магазины →</a>
       </div>
 
       <!-- Categories Small Cards -->
-      <div class="bg-surface-0/80 backdrop-blur-md rounded-3xl border border-transparent shadow-lg p-5">
-         <h4 class="text-sm font-bold text-surface-800 mb-3 px-1 uppercase tracking-tight">Все категории</h4>
+      <div class="ui-island !p-5 !rounded-3xl">
+         <h4 class="text-sm font-bold text-surface-800 mb-4 px-1 uppercase tracking-tight">Все категории</h4>
          <div class="grid grid-cols-2 gap-2">
             ${CATEGORIES.map(cat => `
-              <a href="#/catalog?category=${cat.id}" onclick="window.closeOffcanvas()" class="flex items-center justify-center p-3 bg-surface-50 rounded-xl hover:bg-surface-100 transition-colors">
+              <a href="#/catalog?category=${cat.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex items-center justify-center p-3 !rounded-xl !bg-surface-0/30">
                 <span class="text-[10px] font-bold text-surface-700 leading-tight uppercase text-center">${cat.name}</span>
               </a>
             `).join('')}

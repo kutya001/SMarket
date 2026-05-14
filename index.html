@@ -65,15 +65,15 @@ tailwind.config = {
 
 <!-- Offcanvas Sidebar -->
 <div id="offcanvasOverlay" class="hidden offcanvas-overlay fixed inset-0 z-[90] bg-surface-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="window.closeOffcanvas()"></div>
-<div id="offcanvasPanel" class="offcanvas-panel fixed top-4 bottom-4 right-4 w-[calc(100vw-2rem)] sm:w-80 bg-surface-0/80 backdrop-blur-2xl z-[100] transform translate-x-[120%] flex flex-col shadow-2xl rounded-3xl border border-surface-200/20 transition-transform duration-300 overflow-hidden">
-  <div class="sticky top-0 bg-transparent z-10 flex items-center justify-between p-4 pt-safe border-b border-surface-200/20 shrink-0">
+<div id="offcanvasPanel" class="offcanvas-panel fixed top-4 bottom-4 right-4 w-[calc(100vw-2rem)] sm:w-80 bg-surface-0/80 backdrop-blur-2xl z-[100] transform translate-x-[110%] flex flex-col shadow-2xl rounded-3xl ui-border-v transition-transform duration-300 overflow-hidden">
+  <div class="sticky top-0 bg-transparent z-10 flex items-center justify-between p-4 pt-safe ui-border-b shrink-0">
     <h3 id="offcanvasTitle" class="font-bold text-surface-800">Фильтры</h3>
     <button onclick="window.closeOffcanvas()" class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-100/50 text-surface-500 hover:bg-surface-200/50 transition-colors">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
   <div id="offcanvasFilters" class="flex-1 overflow-y-auto mix-blend-normal"></div>
-  <div id="offcanvasFooter" class="sticky bottom-0 bg-surface-50/80 backdrop-blur-md border-t border-surface-200/20 p-4 shrink-0 flex gap-2">
+  <div id="offcanvasFooter" class="sticky bottom-0 bg-surface-50/80 backdrop-blur-md ui-border-t p-4 shrink-0 flex gap-2">
     <button onclick="window.applyOffcanvasFilters()" class="flex-1 bg-primary-600 text-white py-2.5 rounded-xl font-medium hover:bg-primary-700 transition-colors">Применить</button>
     <button onclick="window.resetAllFilters(); window.closeOffcanvas()" class="flex-1 bg-surface-100/80 text-surface-700 py-2.5 rounded-xl font-medium hover:bg-surface-200 transition-colors">Сбросить</button>
   </div>
@@ -81,7 +81,7 @@ tailwind.config = {
 
 <!-- Header -->
 <header id="mainHeader" class="sticky sm:top-2 top-2 z-50 transition-all pointer-events-none px-2 sm:px-4">
-  <div class="max-w-7xl mx-auto bg-surface-0/40 backdrop-blur-2xl shadow-lg rounded-full pointer-events-auto flex items-center justify-between gap-1 sm:gap-2 p-1 sm:p-1.5 h-12 sm:h-14 relative overflow-visible border border-transparent">
+  <div class="max-w-7xl mx-auto bg-surface-0/40 backdrop-blur-2xl shadow-lg rounded-full pointer-events-auto flex items-center justify-between gap-1 sm:gap-2 p-1 sm:p-1.5 h-12 sm:h-14 relative overflow-visible ui-border-v">
     
     <!-- Logo & Brand (Reduced) -->
     <a href="#/" class="flex items-center gap-2 group shrink-0 px-2 sm:px-3">
@@ -178,17 +178,17 @@ tailwind.config = {
           <div id="desktopSearchInputWrap" class="absolute right-0 top-0 bottom-0 overflow-hidden w-0 opacity-0 transition-all duration-300 pointer-events-none">
             <input type="text" id="globalSearch" placeholder="Поиск..." oninput="window.handleSearch(this.value)" onblur="window.checkSearchBlur(this)" class="w-[240px] h-10 bg-surface-100/40 backdrop-blur-xl border border-transparent rounded-full py-1.5 pl-10 pr-4 text-xs font-bold focus:bg-surface-200/40 focus:outline-none shadow-inner ml-auto">
           </div>
-          <div id="searchDropdown" class="search-dropdown absolute top-full right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/5 z-[100] max-h-[400px] overflow-y-auto w-[300px]"></div>
+          <div id="searchDropdown" class="search-dropdown absolute top-full right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[400px] overflow-y-auto w-[300px]"></div>
         </div>
       </div>
     </div>
 
     <!-- Mobile Search Container (Hidden by default) -->
     <div id="searchContainer" class="w-full absolute top-full left-0 right-0 transition-all duration-300 max-h-0 opacity-0 overflow-hidden z-[55] px-2">
-      <div class="mt-2 relative bg-surface-0/60 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl p-1.5">
+      <div class="mt-2 relative bg-surface-0/60 backdrop-blur-2xl ui-border-v shadow-2xl rounded-2xl p-1.5">
         <input type="text" id="mobileGlobalSearch" placeholder="Найти..." oninput="window.handleSearch(this.value)" class="w-full bg-surface-100/40 border border-transparent rounded-xl py-2 pl-10 pr-4 text-sm font-bold focus:bg-surface-0/60 focus:outline-none transition-all">
         <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/5 z-[100] max-h-[300px] overflow-y-auto w-full"></div>
+        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[300px] overflow-y-auto w-full"></div>
       </div>
     </div>
 
@@ -331,7 +331,7 @@ tailwind.config = {
         </div>
       </div>
       
-      <div class="mt-12 pt-12 border-t border-surface-200/50 text-center text-[10px] font-black uppercase tracking-[0.2em] text-surface-400">
+      <div class="mt-12 pt-12 ui-border-t text-center text-[10px] font-black uppercase tracking-[0.2em] text-surface-400">
         <p>&copy; 2026 SotkaMarket. Все права защищены. Цены не являются публичной офертой.</p>
       </div>
     </div>
@@ -339,7 +339,7 @@ tailwind.config = {
 </footer>
 
 <!-- Mobile Bottom Nav -->
-<nav class="bottom-nav md:hidden fixed bottom-4 left-4 right-4 bg-surface-0/80 backdrop-blur-xl rounded-[2rem] z-50 px-2 py-2 flex items-center justify-around shadow-xl">
+<nav class="bottom-nav md:hidden fixed bottom-4 left-4 right-4 bg-surface-0/80 backdrop-blur-xl rounded-[2rem] z-50 px-2 py-2 flex items-center justify-around shadow-xl ui-border-v">
   <button onclick="window.navigate('/'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-surface-500 hover:text-primary-600 transition-colors w-16 text-center">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
     <span class="text-[10px] font-bold">Главная</span>
