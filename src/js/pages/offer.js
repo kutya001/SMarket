@@ -35,13 +35,13 @@ export function renderOfferPage(app, offerId, params) {
 
   app.innerHTML = `
     <!-- Breadcrumbs -->
-    <div class="max-w-7xl mx-auto px-4 py-3">
-      <nav class="flex items-center gap-2 text-sm text-surface-500 flex-wrap">
-        <a href="#/" class="hover:text-primary-600">Главная</a>
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <a href="#/product/${product.slug}" class="hover:text-primary-600">${product.name}</a>
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <span class="text-surface-800">Предложение от ${seller.name}</span>
+    <div class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 py-3">
+      <nav class="ui-island !p-1.5 sm:!p-2 flex items-center gap-1.5 text-xs sm:text-sm text-surface-500 overflow-x-auto scrollbar-hide !rounded-2xl shrink-0 w-fit">
+        <a href="#/" class="px-3 py-1.5 rounded-xl bg-surface-50/50 hover:bg-surface-100 font-bold transition-colors whitespace-nowrap">Главная</a>
+        <svg class="w-3 h-3 flex-shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="#/product/${product.slug}" class="px-3 py-1.5 rounded-xl bg-surface-50/50 hover:bg-surface-100 font-bold transition-colors whitespace-nowrap">${product.name}</a>
+        <svg class="w-3 h-3 flex-shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="px-3 py-1.5 rounded-xl bg-surface-100/80 font-black text-surface-800 whitespace-nowrap">Предложение от ${seller.name}</span>
       </nav>
     </div>
 

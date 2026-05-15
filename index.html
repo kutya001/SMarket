@@ -65,7 +65,7 @@ tailwind.config = {
 
 <!-- Offcanvas Sidebar -->
 <div id="offcanvasOverlay" class="hidden offcanvas-overlay fixed inset-0 z-[90] bg-surface-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="window.closeOffcanvas()"></div>
-<div id="offcanvasPanel" class="offcanvas-panel fixed top-0 bottom-0 right-0 h-full w-[calc(100vw-3rem)] sm:w-80 bg-surface-0/80 backdrop-blur-2xl z-[100] transform translate-x-full flex flex-col shadow-2xl rounded-l-[2rem] ui-border-l transition-transform duration-300 overflow-hidden">
+<div id="offcanvasPanel" class="offcanvas-panel fixed top-0 bottom-0 right-0 h-full w-[calc(100vw-3rem)] sm:w-80 z-[100] transform translate-x-full flex flex-col shadow-2xl rounded-l-[2rem] ui-border-l transition-transform duration-300 overflow-hidden">
   <div class="sticky top-0 bg-transparent z-10 flex items-center justify-between p-4 pt-safe ui-border-b shrink-0">
     <h3 id="offcanvasTitle" class="font-bold text-surface-800">Фильтры</h3>
     <button onclick="window.closeOffcanvas()" class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-100/50 text-surface-500 hover:bg-surface-200/50 transition-colors">
@@ -86,7 +86,7 @@ tailwind.config = {
     <!-- Logo & Brand (Reduced) -->
     <a href="#/" class="flex items-center gap-2 group shrink-0 px-2 sm:px-3">
       <img src="./public/logo_ic.png" alt="S" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-100/50 object-cover group-hover:scale-105 transition-transform shadow-sm">
-      <span class="font-bold text-surface-900 text-base sm:text-lg tracking-tight hidden lg:block pt-0.5">Sotka<span class="opacity-50 font-medium">market</span></span>
+      <span class="font-bold text-surface-900 text-base sm:text-lg tracking-tight pt-0.5">Sotka<span class="opacity-50 font-medium">market</span></span>
     </a>
 
     <!-- Main Navigation (Desktop) -->
@@ -173,9 +173,9 @@ tailwind.config = {
         </a>
         <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-52 z-[60]">
           <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?view=sellers" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">MVideo (ЦУМ)</a>
-            <a href="#/catalog?view=sellers" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Sulpak (Плаза)</a>
-            <a href="#/catalog?view=sellers" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">iStore KG</a>
+            <a href="#/seller/s1" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">MVideo (ЦУМ)</a>
+            <a href="#/seller/s2" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Sulpak (Плаза)</a>
+            <a href="#/seller/s4" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">iStore KG</a>
             <a href="#/catalog?view=sellers" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-amber-600 hover:bg-amber-50 transition-colors text-center border-t border-surface-200/10">Посмотреть все</a>
           </div>
         </div>
@@ -212,8 +212,13 @@ tailwind.config = {
           <div id="desktopSearchInputWrap" class="absolute right-0 top-0 bottom-0 overflow-hidden w-0 opacity-0 transition-all duration-300 pointer-events-none">
             <input type="text" id="globalSearch" placeholder="Поиск..." oninput="window.handleSearch(this.value)" onblur="window.checkSearchBlur(this)" class="w-[240px] h-10 bg-surface-100/40 backdrop-blur-xl border border-transparent rounded-full py-1.5 pl-10 pr-4 text-xs font-bold focus:bg-surface-200/40 focus:outline-none shadow-inner ml-auto">
           </div>
-          <div id="searchDropdown" class="search-dropdown absolute top-full right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[400px] overflow-y-auto w-[300px]"></div>
+          <div id="searchDropdown" class="search-dropdown absolute top-full right-0 mt-2 rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[400px] overflow-y-auto w-[300px]"></div>
         </div>
+        
+        <!-- Mobile Search Button -->
+        <button onclick="window.toggleMobileSearch()" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-full bg-surface-100/40 text-surface-600 hover:bg-surface-200/40 transition-colors z-20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
       </div>
     </div>
 
@@ -222,7 +227,7 @@ tailwind.config = {
       <div class="mt-2 relative bg-surface-0/60 backdrop-blur-2xl ui-border-v shadow-2xl rounded-2xl p-1.5">
         <input type="text" id="mobileGlobalSearch" placeholder="Найти..." oninput="window.handleSearch(this.value)" class="w-full bg-surface-100/40 border border-transparent rounded-xl py-2 pl-10 pr-4 text-sm font-bold focus:bg-surface-0/60 focus:outline-none transition-all">
         <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 bg-surface-0/60 backdrop-blur-2xl rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[300px] overflow-y-auto w-full"></div>
+        <div id="mobileSearchDropdown" class="search-dropdown absolute top-full left-0 right-0 mt-2 rounded-2xl shadow-2xl ui-border-v z-[100] max-h-[300px] overflow-y-auto w-full"></div>
       </div>
     </div>
 

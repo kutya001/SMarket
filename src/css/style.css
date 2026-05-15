@@ -187,29 +187,36 @@ body { overflow-x: hidden; }
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.floating-dropdown {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+.floating-dropdown,
+.search-dropdown,
+.offcanvas-panel {
+    background-color: var(--surface-0);
     border: 1px solid var(--ui-border);
 }
 
 [data-theme="red-dark"] .ui-island,
-[data-theme="red-dark"] .ui-island-element,
+[data-theme="red-dark"] .ui-island-element {
+    background-color: rgba(30, 32, 35, 0.75) !important;
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
 [data-theme="red-dark"] .search-dropdown,
 [data-theme="red-dark"] .floating-dropdown,
 [data-theme="red-dark"] .offcanvas-panel {
-    background-color: rgba(15, 15, 15, 0.6) !important;
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    border-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--surface-0) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 [data-theme="red-dark"] .ui-island-element {
-    background-color: rgba(255, 255, 255, 0.03) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.05);
 }
 [data-theme="red-dark"] .ui-island-element:hover {
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.6);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="red-dark"] .seo-block {
