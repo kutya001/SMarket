@@ -58,8 +58,8 @@ function renderNamesGrouped(sellerProducts, seller) {
     
     if (classProducts.length === 0) return;
     
-    html += `<div class="ui-island mb-8 !p-4 md:!p-8">
-      <div class="flex items-center justify-between mb-6">
+    html += `<div class="ui-island mb-4 sm:mb-8 !p-3 sm:!p-4 md:!p-8">
+      <div class="flex items-center justify-between mb-4 sm:mb-6">
         <h2 class="text-xl font-bold text-surface-800 uppercase tracking-tight flex items-center gap-2">
           ${cls.icon} ${cls.name}
         </h2>
@@ -73,7 +73,7 @@ function renderNamesGrouped(sellerProducts, seller) {
       if (typeProducts.length === 0) return;
       
       html += `
-        <div class="mb-8">
+        <div class="mb-4 sm:mb-8">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-base font-semibold text-surface-700 flex items-center gap-2">
               ${cat.icon} ${cat.name}
@@ -112,8 +112,8 @@ function renderOffersGrouped(sellerOffers, sellerProducts, seller) {
     
     if (classOffers.length === 0) return;
 
-    html += `<div class="ui-island mb-8 !p-4 md:!p-8">
-      <div class="flex items-center justify-between mb-6">
+    html += `<div class="ui-island mb-4 sm:mb-8 !p-3 sm:!p-4 md:!p-8">
+      <div class="flex items-center justify-between mb-4 sm:mb-6">
         <h2 class="text-xl font-bold text-surface-800 uppercase tracking-tight flex items-center gap-2">
           ${cls.icon} ${cls.name}
         </h2>
@@ -135,7 +135,7 @@ function renderOffersGrouped(sellerOffers, sellerProducts, seller) {
       if (typeOffers.length === 0) return;
 
       html += `
-        <div class="mb-8">
+        <div class="mb-4 sm:mb-8">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-base font-semibold text-surface-700 flex items-center gap-2">
               ${cat.icon} ${cat.name}
@@ -214,8 +214,8 @@ export function renderSellerPage(app, sellerId, params) {
 
     <div class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 pb-12">
       <!-- Seller Header Profile -->
-      <div class="ui-island flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 mt-2 !p-6 md:!p-8">
-        <div class="w-24 h-24 ui-island-element flex items-center justify-center text-5xl flex-shrink-0 !p-2">
+      <div class="ui-island flex flex-col md:flex-row items-start md:items-center gap-4 sm:gap-6 mb-4 sm:mb-8 mt-2 !p-4 sm:!p-6 md:!p-8">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 ui-island-element flex items-center justify-center text-4xl sm:text-5xl flex-shrink-0 !p-2">
           <div class="w-full h-full bg-surface-100 rounded-xl flex items-center justify-center">
             ${seller.logo}
           </div>
@@ -250,7 +250,7 @@ export function renderSellerPage(app, sellerId, params) {
       
       <!-- Quick Filters (Brands) -->
       ${brandIds.size > 0 ? `
-      <div class="mb-6 flex items-center gap-2 flex-wrap">
+      <div class="mb-4 sm:mb-6 flex items-center gap-2 flex-wrap">
         <span class="text-xs font-bold text-surface-500 uppercase tracking-wider mr-2">Фильтр продавца:</span>
         ${Array.from(brandIds).map(bId => {
           const brand = BRANDS.find(b => b.id === bId);
@@ -262,16 +262,19 @@ export function renderSellerPage(app, sellerId, params) {
       ` : ''}
 
       <!-- Seller Tabs -->
-      <div class="mb-8 overflow-x-auto scrollbar-hide -mx-2 px-2 sm:mx-0 sm:px-0">
-        <div class="ui-island-element inline-flex gap-1 !p-1 !rounded-2xl">
-            <button onclick="document.getElementById('seller-products').classList.remove('hidden'); document.getElementById('seller-offers').classList.add('hidden'); document.getElementById('seller-reviews').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.nextElementSibling.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="bg-surface-0 shadow-sm text-primary-600 whitespace-nowrap py-2.5 px-6 rounded-xl font-bold text-sm transition-all focus:outline-none">
-              Наименования (${sellerProducts.length})
+      <div class="mb-4 sm:mb-8">
+        <div class="ui-island-element grid grid-cols-3 gap-1 !p-1 !rounded-[1.2rem] w-full">
+            <button onclick="document.getElementById('seller-products').classList.remove('hidden'); document.getElementById('seller-offers').classList.add('hidden'); document.getElementById('seller-reviews').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.nextElementSibling.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="bg-surface-0 shadow-sm text-primary-600 py-2 sm:py-2.5 px-1 sm:px-6 rounded-xl font-black text-[10px] sm:text-sm tracking-tight transition-all focus:outline-none flex flex-col items-center justify-center leading-tight">
+              <span>Модели</span>
+              <span class="text-[9px] sm:text-xs opacity-70 font-bold">(${sellerProducts.length})</span>
             </button>
-            <button onclick="document.getElementById('seller-offers').classList.remove('hidden'); document.getElementById('seller-products').classList.add('hidden'); document.getElementById('seller-reviews').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="text-surface-500 hover:bg-surface-100 whitespace-nowrap py-2.5 px-6 rounded-xl font-bold text-sm transition-all focus:outline-none">
-              Товары (${sellerOffers.length})
+            <button onclick="document.getElementById('seller-offers').classList.remove('hidden'); document.getElementById('seller-products').classList.add('hidden'); document.getElementById('seller-reviews').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.nextElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.nextElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="text-surface-500 hover:bg-surface-100 py-2 sm:py-2.5 px-1 sm:px-6 rounded-xl font-black text-[10px] sm:text-sm tracking-tight transition-all focus:outline-none flex flex-col items-center justify-center leading-tight">
+              <span>Товары</span>
+              <span class="text-[9px] sm:text-xs opacity-70 font-bold">(${sellerOffers.length})</span>
             </button>
-            <button onclick="document.getElementById('seller-reviews').classList.remove('hidden'); document.getElementById('seller-products').classList.add('hidden'); document.getElementById('seller-offers').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.previousElementSibling.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="text-surface-500 hover:bg-surface-100 whitespace-nowrap py-2.5 px-6 rounded-xl font-bold text-sm transition-all focus:outline-none">
-              Отзывы о продавце
+            <button onclick="document.getElementById('seller-reviews').classList.remove('hidden'); document.getElementById('seller-products').classList.add('hidden'); document.getElementById('seller-offers').classList.add('hidden'); this.classList.add('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.classList.remove('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600'); this.previousElementSibling.previousElementSibling.classList.add('text-surface-500', 'hover:bg-surface-100'); this.previousElementSibling.previousElementSibling.classList.remove('bg-surface-0', 'shadow-sm', 'text-primary-600');" class="text-surface-500 hover:bg-surface-100 py-2 sm:py-2.5 px-1 sm:px-6 rounded-xl font-black text-[10px] sm:text-sm tracking-tight transition-all focus:outline-none flex flex-col items-center justify-center leading-tight">
+              <span>Отзывы</span>
+              <span class="text-[9px] sm:text-xs opacity-70 font-bold">(${seller.reviewsCount || 0})</span>
             </button>
         </div>
       </div>

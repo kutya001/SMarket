@@ -75,14 +75,14 @@ export function renderCatalogPage(app, params) {
     <div class="max-w-7xl mx-auto px-4 pb-8">
       
       <!-- Catalog Tabs -->
-      <div class="flex items-center gap-2 mb-6 bg-surface-100/50 backdrop-blur-xl p-1.5 rounded-xl w-max max-w-full overflow-x-auto border border-transparent custom-scrollbar">
-        <button onclick="window.setCatalogView('products')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'products' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Модели</button>
-        <button onclick="window.setCatalogView('offers')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'offers' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Предложения продавцов</button>
-        <button onclick="window.setCatalogView('sellers')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'sellers' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Продавцы</button>
-        <button onclick="window.setCatalogView('brands')" class="px-5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${State.catalogView === 'brands' ? 'bg-surface-0/60 shadow-sm text-primary-700' : 'text-surface-600 hover:text-surface-800'}">Бренды</button>
+      <div class="grid grid-cols-2 md:inline-flex md:items-center gap-1 sm:gap-2 mb-3 sm:mb-6 bg-surface-100/50 backdrop-blur-xl p-1 sm:p-1.5 rounded-[1.2rem] w-full md:w-max border border-transparent">
+        <button onclick="window.setCatalogView('products')" class="px-2 sm:px-5 py-2 sm:py-2 text-[11px] sm:text-sm font-black tracking-tight rounded-xl transition-all whitespace-nowrap text-center ${State.catalogView === 'products' ? 'bg-surface-0 shadow-sm text-primary-600' : 'text-surface-600 hover:text-surface-800 hover:bg-surface-100/50'}">Модели</button>
+        <button onclick="window.setCatalogView('offers')" class="px-2 sm:px-5 py-2 sm:py-2 text-[11px] sm:text-sm font-black tracking-tight rounded-xl transition-all whitespace-nowrap text-center ${State.catalogView === 'offers' ? 'bg-surface-0 shadow-sm text-primary-600' : 'text-surface-600 hover:text-surface-800 hover:bg-surface-100/50'}">Предложения</button>
+        <button onclick="window.setCatalogView('sellers')" class="px-2 sm:px-5 py-2 sm:py-2 text-[11px] sm:text-sm font-black tracking-tight rounded-xl transition-all whitespace-nowrap text-center ${State.catalogView === 'sellers' ? 'bg-surface-0 shadow-sm text-primary-600' : 'text-surface-600 hover:text-surface-800 hover:bg-surface-100/50'}">Продавцы</button>
+        <button onclick="window.setCatalogView('brands')" class="px-2 sm:px-5 py-2 sm:py-2 text-[11px] sm:text-sm font-black tracking-tight rounded-xl transition-all whitespace-nowrap text-center ${State.catalogView === 'brands' ? 'bg-surface-0 shadow-sm text-primary-600' : 'text-surface-600 hover:text-surface-800 hover:bg-surface-100/50'}">Бренды</button>
       </div>
 
-      <div class="flex flex-col md:flex-row gap-6">
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6">
         
         <!-- Desktop Sidebar -->
         ${(State.catalogView === 'products' || State.catalogView === 'offers') ? `
@@ -185,25 +185,25 @@ export function renderCatalogPage(app, params) {
           
           ${(State.catalogView === 'products' || State.catalogView === 'offers') ? `
             <!-- Toolbar for Products/Offers -->
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-surface-0/60 backdrop-blur-xl p-3 border border-transparent rounded-[2rem] shadow-sm">
-              <div class="flex items-center gap-3 flex-wrap">
-                <button onclick="window.openOffcanvas()" class="md:hidden flex items-center gap-2 bg-surface-0 border border-surface-200 px-4 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-widest hover:bg-surface-50 transition-colors">
+            <div class="flex flex-row items-center justify-between gap-2 sm:gap-3 bg-surface-0/60 backdrop-blur-xl p-1.5 sm:p-3 border border-transparent rounded-[1.2rem] sm:rounded-[2rem] shadow-sm">
+              <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <button onclick="window.openOffcanvas()" class="md:hidden flex items-center gap-1 sm:gap-2 bg-surface-0 border border-surface-200 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-[10px] sm:text-[11px] font-bold uppercase tracking-widest hover:bg-surface-50 transition-colors">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
                   Фильтры
-                  ${activeFilters.length > 0 ? `<span class="w-5 h-5 bg-primary-600 text-white rounded-full flex items-center justify-center">${activeFilters.length}</span>` : ''}
+                  ${activeFilters.length > 0 ? `<span class="w-4 h-4 sm:w-5 sm:h-5 bg-primary-600 text-white rounded-full flex items-center justify-center text-[9px] sm:text-xs">${activeFilters.length}</span>` : ''}
                 </button>
                 <span class="text-sm text-surface-500 hidden sm:inline">Найдено: <strong class="text-surface-800">${State.catalogView === 'offers' ? sortedOffers.length : sortedProducts.length}</strong></span>
               </div>
-              <div class="w-full sm:w-auto relative flex items-center gap-2">
-                <button onclick="window.applyFilters()" class="md:hidden bg-primary-600 text-white px-4 py-2 text-xs font-bold rounded-xl whitespace-nowrap">Применить</button>
-                <select onchange="window.State.sort=this.value;window.renderCurrentPage()" class="appearance-none w-full bg-surface-100 border border-transparent rounded-xl pl-4 pr-10 py-2.5 text-xs font-bold uppercase tracking-widest text-surface-700 hover:bg-surface-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors cursor-pointer">
+              <div class="w-auto relative flex items-center gap-2">
+                <button onclick="window.applyFilters()" class="hidden md:hidden bg-primary-600 text-white px-3 py-2 text-xs font-bold rounded-xl whitespace-nowrap">Применить</button>
+                <select onchange="window.State.sort=this.value;window.renderCurrentPage()" class="appearance-none w-full bg-surface-100 border border-transparent rounded-xl pl-3 sm:pl-4 pr-8 sm:pr-10 py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-surface-700 hover:bg-surface-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors cursor-pointer">
                   <option value="popular" ${State.sort==='popular'?'selected':''}>По популярности</option>
                   <option value="price_asc" ${State.sort==='price_asc'?'selected':''}>Сначала дешёвые</option>
                   <option value="price_desc" ${State.sort==='price_desc'?'selected':''}>Сначала дорогие</option>
                   ${State.catalogView === 'products' ? `<option value="rating" ${State.sort==='rating'?'selected':''}>По рейтингу</option>` : ''}
                   <option value="newest" ${State.sort==='newest'?'selected':''}>Новинки</option>
                 </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-surface-500">
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 sm:px-3 text-surface-500">
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </div>
               </div>
