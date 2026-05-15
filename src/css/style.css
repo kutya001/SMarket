@@ -157,39 +157,58 @@ body { overflow-x: hidden; }
 /* specific dark theme tweaks */
 /* Island UI Design System */
 .ui-island {
-    background-color: var(--surface-100);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 3rem;
-    padding: 2rem;
-    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--ui-border);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
 }
 
-[data-theme="red-dark"] .ui-island {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.05);
+@media (min-width: 640px) {
+    .ui-island {
+        padding: 2.5rem;
+        border-radius: 3rem;
+    }
 }
 
 .ui-island-element {
-    background-color: var(--surface-0);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 1.5rem;
     padding: 1rem;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-[data-theme="red-dark"] .ui-island-element {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--ui-border);
 }
 
 .ui-island-element:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
+.floating-dropdown {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--ui-border);
+}
+
+[data-theme="red-dark"] .ui-island,
+[data-theme="red-dark"] .ui-island-element,
+[data-theme="red-dark"] .search-dropdown,
+[data-theme="red-dark"] .floating-dropdown,
+[data-theme="red-dark"] .offcanvas-panel {
+    background-color: rgba(15, 15, 15, 0.6) !important;
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="red-dark"] .ui-island-element {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
 [data-theme="red-dark"] .ui-island-element:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.08) !important;
     box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
 }
 

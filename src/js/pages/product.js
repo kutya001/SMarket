@@ -84,28 +84,28 @@ export function renderProductPage(app, slug, params) {
     <script type="application/ld+json">${JSON.stringify(schema)}<\/script>
 
     <!-- Breadcrumbs -->
-    <div class="max-w-7xl mx-auto px-4 py-3">
-      <nav class="flex items-center gap-2 text-sm text-surface-500 flex-wrap">
-        <a href="#/" class="hover:text-primary-600">Главная</a>
+    <div class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 py-3">
+      <nav class="ui-island !py-3 !px-4 sm:!px-8 flex items-center gap-2 text-sm text-surface-500 flex-wrap !rounded-2xl">
+        <a href="#/" class="hover:text-primary-600 font-medium transition-colors">Главная</a>
         <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <a href="#/catalog" class="hover:text-primary-600">Каталог</a>
+        <a href="#/catalog" class="hover:text-primary-600 font-medium transition-colors">Каталог</a>
         <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        ${category ? `<a href="#/catalog?category=${category.id}" class="hover:text-primary-600">${category.name}</a><svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
-        <span class="text-surface-800">${product.name}</span>
+        ${category ? `<a href="#/catalog?category=${category.id}" class="hover:text-primary-600 font-medium transition-colors">${category.name}</a><svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
+        <span class="text-surface-800 font-bold">${product.name}</span>
       </nav>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 pb-12">
+    <div class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 pb-12">
       <!-- Block 1: Summary -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+      <div class="ui-island grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10 !p-4 sm:!p-8">
         <!-- Gallery -->
         <div>
-          <div class="bg-surface-50 rounded-2xl overflow-hidden mb-3 relative product-img-wrapper">
-            <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}" class="product-img w-full h-64 sm:h-80 md:h-96 object-contain p-6">
+          <div class="ui-island-element overflow-hidden mb-3 relative product-img-wrapper !p-2">
+            <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}" class="product-img w-full h-64 sm:h-80 md:h-96 object-contain p-4">
           </div>
-          <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+          <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-1">
             ${product.images.map((img, i) => `
-              <button onclick="window.changeMainImage('${img}', event)" class="gallery-thumb ${i===0?'active':''} flex-shrink-0 w-16 h-16 bg-surface-50 rounded-xl border-2 border-transparent overflow-hidden relative product-img-wrapper">
+              <button onclick="window.changeMainImage('${img}', event)" class="gallery-thumb ${i===0?'active':''} flex-shrink-0 w-16 h-16 ui-island-element overflow-hidden relative product-img-wrapper !p-0.5">
                 <img src="${img}" alt="" class="product-img w-full h-full object-contain p-1">
               </button>
             `).join('')}
@@ -113,7 +113,7 @@ export function renderProductPage(app, slug, params) {
         </div>
 
         <!-- Info -->
-        <div>
+        <div class="flex flex-col">
           <h1 class="text-2xl md:text-3xl font-bold text-surface-800 mb-3" itemprop="name">${product.name}</h1>
 
           <div class="flex items-center gap-3 mb-4">
@@ -122,12 +122,12 @@ export function renderProductPage(app, slug, params) {
             <a href="#reviews" class="text-sm text-primary-600 hover:underline">(${product.reviewsCount} отзывов)</a>
           </div>
 
-          ${product.label ? `<span class="inline-block ${product.label==='Новинка'?'bg-accent-500':product.label==='Хит'?'bg-orange-500':'bg-green-500'} text-white text-xs font-bold px-3 py-1 rounded-lg mb-4">${product.label}</span>` : ''}
+          ${product.label ? `<span class="inline-block ${product.label==='Новинка'?'bg-accent-500':product.label==='Хит'?'bg-orange-500':'bg-green-500'} text-white text-xs font-bold px-3 py-1 rounded-lg mb-4 self-start">${product.label}</span>` : ''}
 
           <!-- Quick specs -->
           <div class="grid grid-cols-2 gap-2 mb-6">
             ${specsEntries.slice(0, 4).map(([k,v]) => `
-              <div class="bg-surface-50 rounded-xl p-3">
+              <div class="ui-island-element !p-3">
                 <div class="text-xs text-surface-400">${k}</div>
                 <div class="text-sm font-medium text-surface-700">${v}</div>
               </div>
@@ -135,7 +135,7 @@ export function renderProductPage(app, slug, params) {
           </div>
 
           <!-- Price block -->
-          <div class="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-5 border border-transparent mb-6">
+          <div class="ui-island-element !p-5 mb-6 !bg-gradient-to-br !from-primary-50 !to-accent-50">
             <div class="flex items-center justify-between mb-3">
               <span class="text-sm text-surface-600">Доступно предложений:</span>
               <span class="text-sm font-bold text-primary-700">${productOffers.length}</span>
@@ -160,11 +160,11 @@ export function renderProductPage(app, slug, params) {
 
           <!-- Variant selector -->
           ${variants.length > 1 ? `
-            <div class="mb-4">
-              <h4 class="text-sm font-semibold text-surface-700 mb-2">Варианты:</h4>
+            <div class="ui-island-element !p-4 mb-4">
+              <h4 class="text-sm font-semibold text-surface-700 mb-3">Варианты:</h4>
               <div class="flex flex-wrap gap-2">
                 ${variants.map(v => `
-                  <a href="#/product/${product.slug}?variant=${v.id}" class="px-4 py-2 rounded-xl text-sm border ${selectedVariantId===v.id?'border-primary-600 bg-primary-50 text-primary-700':'border-surface-200 text-surface-600 hover:border-primary-300'} transition-colors">
+                  <a href="#/product/${product.slug}?variant=${v.id}" class="px-4 py-2 rounded-xl text-sm border ${selectedVariantId===v.id?'border-primary-600 bg-primary-600 text-white shadow-md shadow-primary-500/20':'border-surface-200 text-surface-600 hover:border-primary-300 hover:bg-surface-0'} transition-all">
                     ${Object.values(v.attributes).join(' / ')}
                   </a>
                 `).join('')}
@@ -175,20 +175,20 @@ export function renderProductPage(app, slug, params) {
       </div>
 
       <!-- Block 2: Offers -->
-      <div id="offersBlock" class="mb-10">
-        <div class="flex items-center justify-between mb-4">
+      <div id="offersBlock" class="ui-island mb-10 !p-4 sm:!p-8">
+        <div class="flex items-center justify-between mb-6">
           <h2 class="text-2xl font-bold text-surface-800">Предложения продавцов</h2>
         </div>
 
         <!-- Map Container -->
-        <div id="offersMap" class="w-full h-64 md:h-80 bg-surface-100 rounded-2xl border border-transparent mb-6 overflow-hidden relative z-10 shadow-inner"></div>
+        <div id="offersMap" class="ui-island-element w-full h-64 md:h-80 !bg-surface-0 !p-1 mb-6 overflow-hidden relative z-10"></div>
 
         <!-- Tabs -->
-        <div class="flex border-b border-surface-200 mb-6">
-          <button onclick="window.switchConditionTab('new')" id="tabNew" class="tab-active px-6 py-3 text-sm font-semibold transition-colors">
+        <div class="flex border-b border-surface-200 mb-6 gap-6">
+          <button onclick="window.switchConditionTab('new')" id="tabNew" class="tab-active pb-3 text-sm font-semibold transition-colors">
             Новые (${newOffers.length})
           </button>
-          <button onclick="window.switchConditionTab('used')" id="tabUsed" class="px-6 py-3 text-sm font-semibold text-surface-500 hover:text-surface-700 transition-colors">
+          <button onclick="window.switchConditionTab('used')" id="tabUsed" class="pb-3 text-sm font-semibold text-surface-500 hover:text-surface-700 transition-colors">
             Б/У (${usedOffers.length})
           </button>
         </div>
@@ -211,21 +211,21 @@ export function renderProductPage(app, slug, params) {
       </div>
 
       <!-- Block 3: Specifications -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-bold text-surface-800 mb-4">Характеристики</h2>
-        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-transparent overflow-hidden">
+      <div class="ui-island mb-10 !p-4 sm:!p-8">
+        <h2 class="text-2xl font-bold text-surface-800 mb-6">Характеристики</h2>
+        <div class="ui-island-element !p-0 overflow-hidden">
           <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="divide-y divide-surface-100">
               ${specsLeft.map(([k,v]) => `
-                <div class="flex justify-between px-5 py-3.5">
+                <div class="flex justify-between px-5 py-3.5 hover:bg-surface-50 transition-colors">
                   <span class="text-sm text-surface-500">${k}</span>
                   <span class="text-sm font-medium text-surface-800">${v}</span>
                 </div>
               `).join('')}
             </div>
-            <div class="divide-y divide-surface-100">
+            <div class="divide-y divide-surface-100 md:border-l border-surface-100">
               ${specsRight.map(([k,v]) => `
-                <div class="flex justify-between px-5 py-3.5">
+                <div class="flex justify-between px-5 py-3.5 hover:bg-surface-50 transition-colors">
                   <span class="text-sm text-surface-500">${k}</span>
                   <span class="text-sm font-medium text-surface-800">${v}</span>
                 </div>
@@ -236,19 +236,19 @@ export function renderProductPage(app, slug, params) {
       </div>
 
       <!-- Block 4: Description -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-bold text-surface-800 mb-4">Описание</h2>
-        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-transparent p-5 md:p-8 prose prose-surface max-w-none">
+      <div class="ui-island mb-10 !p-4 sm:!p-8">
+        <h2 class="text-2xl font-bold text-surface-800 mb-6">Описание</h2>
+        <div class="ui-island-element !p-5 md:!p-8 prose prose-surface max-w-none">
           <p class="text-surface-600 leading-relaxed">${product.description}</p>
         </div>
       </div>
 
       <!-- Block 5: Reviews -->
-      <div id="reviews" class="mb-10">
-        <h2 class="text-2xl font-bold text-surface-800 mb-4">Отзывы (${productReviews.length})</h2>
+      <div id="reviews" class="ui-island mb-10 !p-4 sm:!p-8">
+        <h2 class="text-2xl font-bold text-surface-800 mb-6">Отзывы (${productReviews.length})</h2>
 
         <!-- Rating distribution -->
-        <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-transparent p-5 mb-6">
+        <div class="ui-island-element !p-5 mb-6">
           <div class="flex flex-col md:flex-row gap-6">
             <div class="flex flex-col items-center min-w-[120px]">
               <div class="text-4xl font-bold text-surface-800">${product.rating}</div>
@@ -280,7 +280,7 @@ export function renderProductPage(app, slug, params) {
         <!-- Reviews list -->
         <div class="space-y-4">
           ${productReviews.length > 0 ? productReviews.map(r => `
-            <div class="bg-surface-0/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-transparent p-5">
+            <div class="ui-island-element !p-5">
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-sm">${r.author[0]}</div>
@@ -321,7 +321,7 @@ export function renderOfferRow(offer, tabType) {
   };
 
   return `
-    <div class="bg-surface-0/80 backdrop-blur-xl rounded-[1.5rem] shadow-sm border border-transparent p-4 md:p-5 hover:shadow-md transition-shadow cursor-pointer border-l-4 border-l-transparent hover:border-l-primary-500" 
+    <div class="ui-island-element !p-4 md:!p-5 hover:shadow-md cursor-pointer border-l-4 hover:border-l-primary-500" 
          onmouseenter="window.focusMapMarker('${seller.id}')" onclick="window.location.hash = '#/offer/${offer.id}'"
          itemscope itemtype="https://schema.org/Offer">
       <div class="flex flex-col md:flex-row md:items-center gap-4">

@@ -127,11 +127,18 @@ export const CLASSES = [
 export const CATEGORIES = [
   { id:'smartphones', name:'Телефоны', icon:'📱', classId: 'devices', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/14e2f8b9e-dab3-4263-8aa8-9af18ca6742e.png' },
   { id:'tablets', name:'Планшеты', icon:'📟', classId: 'devices', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1ba6ad3ba-b937-492c-ba69-145b9e008b2b.png' },
+  { id:'laptops', name:'Ноутбуки', icon:'💻', classId: 'devices', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1ba6ad3ba-b937-492c-ba69-145b9e008b2b.png' },
   { id:'watches', name:'Часы', icon:'⌚', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/151fb91eb-9ea7-48e1-be9c-f2b943ced773.png' },
   { id:'headphones', name:'Наушники', icon:'🎧', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/13c99d60f-7673-4ac4-b7f7-2d5496885e22.png' },
   { id:'chargers', name:'Зарядки', icon:'🔌', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
   { id:'cases', name:'Чехлы', icon:'🛡️', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
   { id:'glass', name:'Защитные стёкла', icon:'🔲', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'repair', name:'Ремонт', icon:'🔧', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'unlock', name:'Разблокировка', icon:'🔓', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'firmware', name:'Прошивка', icon:'🔋', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'displays', name:'Дисплеи', icon:'📱', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'batteries', name:'Батареи', icon:'🔋', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'loops', name:'Шлейфы', icon:'🔌', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
 ];
 
 export const BRANDS = [
