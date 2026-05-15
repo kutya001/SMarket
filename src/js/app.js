@@ -4,7 +4,16 @@ import { trackEvent } from './utils/analytics.js';
 import { showToast } from './components/ui/toast.js';
 import { navigate, initRouter, renderPage, renderCurrentPage } from './router/router.js';
 import { initSlider, goToSlide, nextSlide, prevSlide } from './components/ui/slider.js';
-import { handleHomeMapSearch, updateHomeMapMarkers, focusMapMarker } from './utils/map.js';
+import { handleHomeMapSearch, updateHomeMapMarkers, focusMapMarker, initFullscreenMap, closeFullscreenMap, toggleMapFilters, updateMapFilters, updateMapSearch, updateMapSidebarList, focusFullMapMarker } from './utils/map.js';
+
+// Global Map Setup
+window.initFullscreenMap = initFullscreenMap;
+window.closeFullscreenMap = closeFullscreenMap;
+window.toggleMapFilters = toggleMapFilters;
+window.updateMapFilters = updateMapFilters;
+window.updateMapSearch = updateMapSearch;
+window.updateMapSidebarList = updateMapSidebarList;
+window.focusFullMapMarker = focusFullMapMarker;
 import { setCatalogView, updateFilter, removeFilter, applyFilters, resetAllFilters } from './pages/catalog.js';
 import { handleSearch } from './components/ui/search.js';
 import { 
@@ -165,6 +174,17 @@ function renderDesktopNav() {
           <a href="#/catalog?view=sellers" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-amber-600 hover:bg-amber-50 transition-colors text-center border-t border-surface-200/10">Посмотреть все</a>
         </div>
       </div>
+    </div>
+  `;
+
+  // Map link
+  html += `
+    <div class="w-px h-4 bg-surface-200 mx-1 hidden lg:block"></div>
+    <div class="group relative">
+      <a href="#/map" class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-black text-primary-600 bg-primary-50/50 hover:bg-primary-100/50 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        <span>Карта</span>
+      </a>
     </div>
   `;
 

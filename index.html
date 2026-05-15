@@ -31,6 +31,8 @@ tailwind.config = {
 <!-- Leaflet CSS & JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet Rotate Plugin -->
+<script src="https://unpkg.com/leaflet-rotate@0.1.4/dist/leaflet-rotate.js"></script>
 
 <script>
   const savedTheme = localStorage.getItem('theme') || 'red-light';
@@ -299,12 +301,17 @@ tailwind.config = {
     <span class="text-[10px] font-bold">Главная</span>
   </button>
   
-  <button onclick="window.navigate('/catalog?view=brands'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-surface-500 hover:text-primary-600 transition-colors w-16 text-center">
+  <button onclick="window.navigate('/catalog?view=brands'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-surface-500 hover:text-primary-600 transition-colors w-14 sm:w-16 text-center">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
     <span class="text-[10px] font-bold">Бренды</span>
   </button>
   
-  <button onclick="window.navigate('/catalog?view=sellers'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-surface-500 hover:text-amber-600 transition-colors w-16 text-center">
+  <button onclick="window.navigate('/map'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-primary-500 hover:text-primary-600 transition-colors w-14 sm:w-16 text-center">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+    <span class="text-[10px] font-bold">Карта</span>
+  </button>
+  
+  <button onclick="window.navigate('/catalog?view=sellers'); window.closeOffcanvas()" class="flex flex-col items-center justify-center gap-1 p-2 text-surface-500 hover:text-amber-600 transition-colors w-14 sm:w-16 text-center">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
     <span class="text-[10px] font-bold">Магазины</span>
   </button>

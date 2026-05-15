@@ -153,7 +153,13 @@ export function renderHomePage(app) {
             </div>
           </div>
         </div>
-        <div id="homeGlobalMap" class="w-full h-96 md:h-[500px] bg-surface-0/10 rounded-[2.5rem] overflow-hidden border border-transparent shadow-2xl z-10 relative"></div>
+        <div class="relative w-full h-96 md:h-[500px] z-10">
+          <div id="homeGlobalMap" class="w-full h-full bg-surface-0/10 rounded-[2.5rem] overflow-hidden border border-transparent shadow-2xl relative"></div>
+          <button onclick="window.navigate('/map')" class="absolute top-4 right-4 z-[400] bg-surface-0/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-surface-200 text-xs font-bold text-surface-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            Режим карты
+          </button>
+        </div>
       </div>
     </section>
   `;

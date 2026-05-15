@@ -5,6 +5,7 @@ import { renderProductPage } from '../pages/product.js';
 import { renderSellerPage } from '../pages/seller.js';
 import { renderOfferPage } from '../pages/offer.js';
 import { renderProfilePage } from '../pages/profile.js';
+import { renderMapPage } from '../pages/map.js';
 
 export function navigate(path) {
   window.location.hash = path;
@@ -39,7 +40,12 @@ export function renderPage() {
     window._currentProductMap.remove();
     window._currentProductMap = null;
   }
+  if (window._fullMap) {
+    window._fullMap.remove();
+    window._fullMap = null;
+  }
   window._currentMapMarkersDict = {};
+  window._fullMapMarkers = [];
 
   const { path, params } = getRouteParams();
   const app = document.getElementById('app');
@@ -53,6 +59,8 @@ export function renderPage() {
     renderFavoritesPage(app);
   } else if (path === '/profile') {
     renderProfilePage(app);
+  } else if (path === '/map') {
+    renderMapPage(app, params);
   } else if (path.startsWith('/product/')) {
     const slug = path.replace('/product/', '');
     renderProductPage(app, slug, params);
@@ -73,6 +81,8 @@ export function renderCurrentPage() {
   
   if (path === '/catalog') {
     renderCatalogPage(app, params);
+  } else if (path === '/map') {
+    renderMapPage(app, params);
   } else if (path.startsWith('/product/')) {
     const slug = path.replace('/product/', '');
     renderProductPage(app, slug, params);

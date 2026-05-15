@@ -63,3 +63,42 @@ html, body {
   z-index: 1 !important; /* Уменьшаем z-index, чтобы не перекрывал Header */
   border-radius: inherit;
 }
+
+html.dark .leaflet-layer,
+html.dark .leaflet-control-zoom-in,
+html.dark .leaflet-control-zoom-out,
+html.dark .leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 1.5rem !important;
+  background-color: var(--color-surface-0, #fff) !important;
+  color: var(--color-surface-900, #111) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  padding: 0.25rem !important;
+}
+
+html.dark .leaflet-popup-content-wrapper {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.leaflet-popup-tip {
+  background-color: var(--color-surface-0, #fff) !important;
+}
+
+html.dark .leaflet-popup-tip {
+  background-color: #1e293b !important;
+}
+
+/* Fullscreen Map Mode */
+.map-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1000 !important;
+  border-radius: 0 !important;
+}

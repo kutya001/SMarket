@@ -181,7 +181,13 @@ export function renderProductPage(app, slug, params) {
         </div>
 
         <!-- Map Container -->
-        <div id="offersMap" class="ui-island-element w-full h-64 md:h-80 !bg-surface-0 !p-1 mb-6 overflow-hidden relative z-10"></div>
+        <div class="relative w-full h-64 md:h-80 mb-6">
+          <div id="offersMap" class="ui-island-element w-full h-full !bg-surface-0 !p-1 overflow-hidden z-10"></div>
+          <button onclick="window.navigate('/map')" class="absolute top-3 right-3 z-[400] bg-surface-0/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-surface-200 text-[10px] font-bold text-surface-700 hover:text-primary-600 transition-colors flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            На весь экран
+          </button>
+        </div>
 
         <!-- Tabs -->
         <div class="flex border-b border-surface-200 mb-6 gap-6">
