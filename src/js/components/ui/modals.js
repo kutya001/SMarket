@@ -1,6 +1,6 @@
 import { showToast } from './toast.js';
 import { renderCurrentPage } from '../../router/router.js';
-import { REVIEWS, CATEGORIES, BRANDS, CLASSES } from '../../data/mockData.js';
+import { REVIEWS, CATEGORIES, BRANDS, CLASSES, SELLERS } from '../../data/mockData.js';
 import { openAuthModal } from '../../auth.js';
 
 export function updateProfileButton() {
@@ -269,15 +269,11 @@ export function toggleMobileMenu() {
           <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Бренды</h4>
         </div>
         <div class="grid grid-cols-3 gap-3">
-          <a href="#/catalog?brand=apple" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Apple</span>
-          </a>
-          <a href="#/catalog?brand=samsung" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Samsung</span>
-          </a>
-          <a href="#/catalog?brand=xiaomi" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-            <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase">Xiaomi</span>
-          </a>
+          ${BRANDS.slice(0, 3).map(brand => `
+            <a href="#/catalog?brand=${brand.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
+              <span class="text-[10px] sm:text-xs font-bold text-surface-700 uppercase leading-none text-center">${brand.name}</span>
+            </a>
+          `).join('')}
         </div>
       </div>
 
@@ -287,24 +283,19 @@ export function toggleMobileMenu() {
           <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Устройства</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-3">
-          <a href="#/catalog?category=smartphones" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-             <span class="text-xs font-bold text-surface-700 uppercase">Смартфоны</span>
-          </a>
-          <a href="#/catalog?category=phones" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-             <span class="text-xs font-bold text-surface-700 uppercase">Кнопочные</span>
-          </a>
+          ${CATEGORIES.filter(c => c.classId === 'devices').slice(0, 2).map(cat => `
+            <a href="#/catalog?category=${cat.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
+               <span class="text-xs font-bold text-surface-700 uppercase leading-none text-center">${cat.name}</span>
+            </a>
+          `).join('')}
         </div>
         
         <div class="grid grid-cols-3 gap-2">
-          <a href="#/catalog?class=accessories" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
-            <span class="text-[10px] font-bold text-surface-600 uppercase">Аксессуары</span>
-          </a>
-          <a href="#/catalog?class=services" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
-            <span class="text-[10px] font-bold text-surface-600 uppercase">Услуги</span>
-          </a>
-          <a href="#/catalog?class=parts" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
-            <span class="text-[10px] font-bold text-surface-600 uppercase">Запчасти</span>
-          </a>
+          ${CLASSES.filter(c => c.id !== 'devices').map(cls => `
+            <a href="#/catalog?class=${cls.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-2 !rounded-xl !bg-surface-0/30">
+              <span class="text-[10px] font-bold text-surface-600 uppercase text-center">${cls.name}</span>
+            </a>
+          `).join('')}
         </div>
       </div>
 
@@ -314,12 +305,11 @@ export function toggleMobileMenu() {
           <h4 class="text-base font-bold text-surface-800 uppercase tracking-tight">Магазины</h4>
         </div>
         <div class="grid grid-cols-2 gap-3 mb-2">
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-            <span class="text-sm font-bold text-surface-800 uppercase">iStore</span>
-          </a>
-          <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
-            <span class="text-sm font-bold text-surface-800 uppercase">MiStore</span>
-          </a>
+          ${SELLERS.filter(s => ['s1', 's13'].includes(s.id)).map(seller => `
+            <a href="#/seller/${seller.id}" onclick="window.closeOffcanvas()" class="ui-island-element flex flex-col items-center justify-center p-3 !rounded-[1.2rem]">
+              <span class="text-xs font-bold text-surface-800 uppercase leading-tight text-center" style="word-break: break-word;">${seller.name}</span>
+            </a>
+          `).join('')}
         </div>
         <a href="#/catalog?view=sellers" onclick="window.closeOffcanvas()" class="block text-center text-xs font-black text-primary-600 py-2 uppercase tracking-widest hover:underline transition-all">Все магазины →</a>
       </div>

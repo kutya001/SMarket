@@ -84,102 +84,14 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto bg-surface-0/40 backdrop-blur-2xl shadow-lg rounded-full pointer-events-auto flex items-center justify-between gap-1 sm:gap-2 p-1 sm:p-1.5 h-12 sm:h-14 relative overflow-visible ui-border-v">
     
     <!-- Logo & Brand (Reduced) -->
-    <a href="#/" class="flex items-center gap-2 group shrink-0 px-2 sm:px-3">
-      <img src="./public/logo_ic.png" alt="S" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-100/50 object-cover group-hover:scale-105 transition-transform shadow-sm">
-      <span class="font-bold text-surface-900 text-base sm:text-lg tracking-tight pt-0.5">Sotka<span class="opacity-50 font-medium">market</span></span>
+    <a href="#/" class="flex items-center gap-1 sm:gap-2 group shrink-0 px-1.5 sm:px-3">
+      <img src="./public/logo_ic.png" alt="S" class="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-surface-100/50 object-cover group-hover:scale-105 transition-transform shadow-sm">
+      <span class="font-bold text-surface-900 text-sm sm:text-lg tracking-tight pt-0.5 whitespace-nowrap">Sotka<span class="opacity-50 font-medium">market</span></span>
     </a>
 
     <!-- Main Navigation (Desktop) -->
-    <nav class="hidden md:flex items-center justify-center gap-0.5 lg:gap-1">
-      <!-- Devices -->
-      <div class="group relative">
-        <a href="#/catalog?class=devices" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Устройства
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?category=smartphones" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Смартфоны</a>
-            <a href="#/catalog?category=tablets" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Планшеты</a>
-            <a href="#/catalog?category=laptops" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Ноутбуки</a>
-            <a href="#/catalog?category=watches" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Часы</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Accessories -->
-      <div class="group relative">
-        <a href="#/catalog?class=accessories" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Аксессуары
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?category=headphones" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Наушники</a>
-            <a href="#/catalog?category=chargers" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Зарядки</a>
-            <a href="#/catalog?category=cases" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Чехлы</a>
-            <a href="#/catalog?category=glass" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Защитные стёкла</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Services -->
-      <div class="group relative">
-        <a href="#/catalog?class=services" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Услуги
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?category=repair" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Ремонт</a>
-            <a href="#/catalog?category=unlock" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Разблокировка</a>
-            <a href="#/catalog?category=firmware" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Прошивка</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Spare Parts -->
-      <div class="group relative">
-        <a href="#/catalog?class=parts" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Запчасти
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?category=displays" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Дисплеи</a>
-            <a href="#/catalog?category=batteries" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Батареи</a>
-            <a href="#/catalog?category=loops" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Шлейфы</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="w-px h-4 bg-surface-200 mx-1 hidden lg:block"></div>
-
-      <!-- Brands -->
-      <div class="group relative">
-        <a href="#/catalog?view=brands" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Бренды
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-44 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/catalog?brand=apple" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Apple</a>
-            <a href="#/catalog?brand=samsung" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Samsung</a>
-            <a href="#/catalog?brand=xiaomi" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Xiaomi</a>
-            <a href="#/catalog?view=brands" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-primary-600 hover:bg-primary-50 transition-colors text-center border-t border-surface-200/10">Все бренды</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Stores -->
-      <div class="group relative">
-        <a href="#/catalog?view=sellers" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
-          Магазины
-        </a>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-52 z-[60]">
-          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5">
-            <a href="#/seller/s1" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">MVideo (ЦУМ)</a>
-            <a href="#/seller/s2" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">Sulpak (Плаза)</a>
-            <a href="#/seller/s4" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">iStore KG</a>
-            <a href="#/catalog?view=sellers" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-amber-600 hover:bg-amber-50 transition-colors text-center border-t border-surface-200/10">Посмотреть все</a>
-          </div>
-        </div>
-      </div>
+    <nav id="desktopNav" class="hidden md:flex items-center justify-center gap-0.5 lg:gap-1">
+      <!-- Generated dynamically in app.js -->
     </nav>
 
     <!-- Actions & City -->

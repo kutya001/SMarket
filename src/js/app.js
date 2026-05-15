@@ -1,4 +1,4 @@
-import { SELLERS } from './data/mockData.js';
+import { SELLERS, CLASSES, CATEGORIES, BRANDS } from './data/mockData.js';
 import { State, saveState, toggleFavorite, isFavorite, updateFavBadge } from './store/state.js';
 import { trackEvent } from './utils/analytics.js';
 import { showToast } from './components/ui/toast.js';
@@ -102,9 +102,79 @@ window.changeMainImage = changeMainImage;
 window.showMegaMenu = showMegaMenu;
 window.hideMegaMenu = hideMegaMenu;
 
+function renderDesktopNav() {
+  const desktopNav = document.getElementById('desktopNav');
+  if (!desktopNav) return;
+
+  let html = '';
+
+  // 1. Classes -> Categories
+  CLASSES.forEach(cls => {
+    const classCats = CATEGORIES.filter(c => c.classId === cls.id);
+    if (classCats.length === 0) return;
+    
+    html += `
+      <div class="group relative">
+        <a href="#/catalog?class=${cls.id}" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
+          ${cls.name}
+        </a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 z-[60]">
+          <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5 bg-surface-0 border border-surface-200/50">
+            ${classCats.map(cat => `
+              <a href="#/catalog?category=${cat.id}" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">${cat.name}</a>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `<div class="w-px h-4 bg-surface-200 mx-1 hidden lg:block"></div>`;
+
+  // 2. Brands
+  const topBrands = BRANDS.slice(0, 3);
+  html += `
+    <div class="group relative">
+      <a href="#/catalog?view=brands" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
+        Бренды
+      </a>
+      <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-44 z-[60]">
+        <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5 bg-surface-0 border border-surface-200/50">
+          ${topBrands.map(b => `
+            <a href="#/catalog?brand=${b.id}" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">${b.name}</a>
+          `).join('')}
+          <a href="#/catalog?view=brands" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-primary-600 hover:bg-primary-50 transition-colors text-center border-t border-surface-200/10">Все бренды</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 3. Sellers
+  // Show standard stores plus Mvideo
+  const topSellers = SELLERS.filter(s => ['s1', 's2', 's13', 's14'].includes(s.id));
+  html += `
+    <div class="group relative">
+      <a href="#/catalog?view=sellers" class="flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-bold text-surface-700 hover:bg-surface-200/50 transition-colors">
+        Магазины
+      </a>
+      <div class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-52 z-[60]">
+        <div class="floating-dropdown shadow-2xl rounded-2xl p-1.5 flex flex-col gap-0.5 bg-surface-0 border border-surface-200/50">
+          ${topSellers.map(s => `
+            <a href="#/seller/${s.id}" class="px-3 py-2 rounded-xl text-xs font-bold text-surface-700 hover:bg-surface-200/40 transition-colors">${s.name}</a>
+          `).join('')}
+          <a href="#/catalog?view=sellers" class="px-3 py-2 mt-1 rounded-xl text-xs font-black text-amber-600 hover:bg-amber-50 transition-colors text-center border-t border-surface-200/10">Посмотреть все</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  desktopNav.innerHTML = html;
+}
+
 function init() {
   updateFavBadge();
   updateProfileButton();
+  renderDesktopNav();
   initRouter();
   renderPage();
 
