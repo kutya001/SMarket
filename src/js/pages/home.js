@@ -67,15 +67,15 @@ export function renderHomePage(app) {
     </section>
 
     <!-- Trending Products -->
-    <section class="max-w-7xl mx-auto px-4 py-10">
-      <div class="ui-island">
-        <div class="flex flex-col sm:flex-row items-center justify-between mb-10 gap-4">
+    <section class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 py-10">
+      <div class="ui-island !p-4 sm:!p-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
           <h2 class="text-2xl font-black text-surface-800 uppercase tracking-tighter">🔥 Популярное</h2>
           <a href="#/catalog" class="bg-primary-600 px-6 py-2.5 rounded-2xl text-white text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/20 border border-transparent">
             Смотреть все
           </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
           ${trendingProducts.map(p => renderProductCard(p)).join('')}
         </div>
       </div>
@@ -83,15 +83,15 @@ export function renderHomePage(app) {
 
     <!-- Deals -->
     ${dealsProducts.length > 0 ? `
-    <section class="max-w-7xl mx-auto px-4 py-10">
-      <div class="ui-island !bg-primary-500/5">
-        <div class="flex flex-col sm:flex-row items-center justify-between mb-10 gap-4">
+    <section class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 py-10">
+      <div class="ui-island !bg-primary-500/5 !p-4 sm:!p-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
           <h2 class="text-2xl font-black text-primary-900 uppercase tracking-tighter">💰 Выгодные предложения</h2>
           <a href="#/catalog?label=deals" class="bg-primary-600 text-white px-6 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary-700 transition-all shadow-xl shadow-primary-500/20">
             Все акции
           </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
           ${dealsProducts.map(p => renderProductCard(p)).join('')}
         </div>
       </div>

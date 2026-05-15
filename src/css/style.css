@@ -85,7 +85,7 @@ body { overflow-x: hidden; }
   --surface-700: #e3e3e3;
   --surface-800: #f2f2f2;
   --surface-900: #ffffff;
-  --ui-border: rgba(255, 255, 255, 0.08);
+  --ui-border: rgba(160, 160, 160, 0.15);
 }
 
 [data-theme="red-light"] {
@@ -106,6 +106,10 @@ body { overflow-x: hidden; }
 
 .ui-border-t {
     border-top: 1px solid var(--ui-border);
+}
+
+.ui-border-l {
+    border-left: 1px solid var(--ui-border);
 }
 
 [data-theme] .bg-white { background-color: var(--surface-0); }

@@ -65,7 +65,7 @@ tailwind.config = {
 
 <!-- Offcanvas Sidebar -->
 <div id="offcanvasOverlay" class="hidden offcanvas-overlay fixed inset-0 z-[90] bg-surface-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="window.closeOffcanvas()"></div>
-<div id="offcanvasPanel" class="offcanvas-panel fixed top-4 bottom-4 right-4 w-[calc(100vw-2rem)] sm:w-80 bg-surface-0/80 backdrop-blur-2xl z-[100] transform translate-x-[110%] flex flex-col shadow-2xl rounded-3xl ui-border-v transition-transform duration-300 overflow-hidden">
+<div id="offcanvasPanel" class="offcanvas-panel fixed top-0 bottom-0 right-0 h-full w-[calc(100vw-3rem)] sm:w-80 bg-surface-0/80 backdrop-blur-2xl z-[100] transform translate-x-full flex flex-col shadow-2xl rounded-l-[2rem] ui-border-l transition-transform duration-300 overflow-hidden">
   <div class="sticky top-0 bg-transparent z-10 flex items-center justify-between p-4 pt-safe ui-border-b shrink-0">
     <h3 id="offcanvasTitle" class="font-bold text-surface-800">Фильтры</h3>
     <button onclick="window.closeOffcanvas()" class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-100/50 text-surface-500 hover:bg-surface-200/50 transition-colors">
@@ -282,21 +282,28 @@ tailwind.config = {
 <main id="app" class="flex-1"></main>
 
 <footer class="py-12 pb-24 md:pb-12">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="bg-surface-200/10 backdrop-blur-2xl rounded-[3rem] p-8 md:p-12 shadow-sm border border-transparent">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div class="md:col-span-1">
-          <div class="flex items-center gap-2 mb-6 group">
-            <img src="./public/logo_ic.png" alt="SotkaMarket" class="w-12 h-12 rounded-[1.25rem] bg-surface-0/40 object-cover shadow-sm transition-transform group-hover:rotate-6">
-            <span class="font-black text-surface-900 text-2xl tracking-tighter uppercase transition-colors group-hover:text-primary-600">Sotka<span class="opacity-40">market</span></span>
-          </div>
-          <p class="text-sm leading-relaxed mb-6 font-medium text-surface-500">Агрегатор цен на мобильную электронику от проверенных продавцов в Кыргызстане.</p>
-          <div class="flex gap-3">
-            <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">📱</a>
-            <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">🔥</a>
-          </div>
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+    <div class="ui-island flex-1 flex flex-col justify-between !p-8 md:!p-12">
+      <div>
+        <div class="flex items-center gap-2 mb-6 group">
+          <img src="./public/logo_ic.png" alt="SotkaMarket" class="w-12 h-12 rounded-[1.25rem] bg-surface-0/40 object-cover shadow-sm transition-transform group-hover:rotate-6">
+          <span class="font-black text-surface-900 text-2xl tracking-tighter uppercase transition-colors group-hover:text-primary-600">Sotka<span class="opacity-40">market</span></span>
         </div>
-        
+        <p class="text-sm leading-relaxed mb-6 font-medium text-surface-500">Агрегатор цен на мобильную электронику от проверенных продавцов в Кыргызстане.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">📱</a>
+          <a href="#" class="w-10 h-10 rounded-2xl bg-surface-0 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all shadow-sm hover:-translate-y-1">🔥</a>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-12 ui-border-t text-left text-[10px] font-black uppercase tracking-[0.2em] text-surface-400">
+        <p>&copy; 2026 SotkaMarket.</p>
+        <p>Цены не являются публичной офертой.</p>
+      </div>
+    </div>
+    
+    <div class="ui-island flex-[2] !p-8 md:!p-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 h-full">
         <div>
           <h4 class="text-surface-800 font-black mb-6 uppercase tracking-widest text-xs">Покупателям</h4>
           <ul class="space-y-3 text-sm font-bold">
@@ -329,10 +336,6 @@ tailwind.config = {
             </li>
           </ul>
         </div>
-      </div>
-      
-      <div class="mt-12 pt-12 ui-border-t text-center text-[10px] font-black uppercase tracking-[0.2em] text-surface-400">
-        <p>&copy; 2026 SotkaMarket. Все права защищены. Цены не являются публичной офертой.</p>
       </div>
     </div>
   </div>
