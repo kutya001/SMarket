@@ -12,7 +12,7 @@ export function renderOfferCard(offer) {
 
   return `
     <div class="product-card relative bg-surface-0/90 backdrop-blur rounded-[2rem] shadow-sm hover:shadow-lg transition-all border border-transparent overflow-hidden group animate-fadeIn" itemscope itemtype="https://schema.org/Product">
-      <a href="#/product/${product.slug}?variant=${variant.id}&seller=${offer.sellerId}" class="block h-full" onclick="window.trackEvent('offer_view',{offerId:'${offer.id}'})">
+      <a href="#/offer/${offer.id}" class="block h-full" onclick="window.trackEvent('offer_view',{offerId:'${offer.id}'})">
         <div class="relative aspect-[4/3] bg-surface-50 overflow-hidden product-img-wrapper rounded-t-2xl">
           <img src="${offer.usedImages && offer.usedImages.length > 0 ? offer.usedImages[0] : (variant.images && variant.images[0] ? variant.images[0] : product.images[0])}" alt="${product.name}" class="product-img w-full h-full object-contain p-4" loading="lazy" itemprop="image">
           <span class="absolute top-2 left-2 ${offer.condition==='NEW'?'bg-green-500':'bg-amber-500'} text-white text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-widest">${offer.condition==='NEW'?'Новый':'Б/У'}</span>

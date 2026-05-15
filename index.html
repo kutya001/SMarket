@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>SotkaMarket — Каталог телефонов и аксессуаров</title>
 <meta name="description" content="Сравните цены на мобильные телефоны, планшеты и аксессуары. Агрегатор предложений от проверенных продавцов.">
+<meta name="theme-color" content="#dc2626">
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="./public/logo_ic.png">
 
 <!-- Font -->
@@ -322,6 +324,17 @@ tailwind.config = {
   </button>
 </nav>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('SW registered: ', registration);
+      }).catch(registrationError => {
+        console.log('SW registration failed: ', registrationError);
+      });
+    });
+  }
+</script>
 <script type="module" src="./src/js/app.js"></script>
 </body>
 </html>
