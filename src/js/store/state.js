@@ -3,7 +3,7 @@ import { showToast } from '../components/ui/toast.js';
 export const State = {
   favorites: JSON.parse(localStorage.getItem('tm_favorites') || '[]'),
   user: JSON.parse(localStorage.getItem('tm_user') || 'null'),
-  filters: { class: [], category: [], brand: [], seller: [], priceMin: 0, priceMax: 999999, condition: 'all', storage: 'all', color: 'all', search: '' },
+  filters: { class: [], category: [], brand: [], seller: [], priceMin: 0, priceMax: 999999, condition: 'all', storage: 'all', color: 'all', search: '', label: '' },
   sort: 'popular',
   catalogView: 'products',
   catalogPage: 1,

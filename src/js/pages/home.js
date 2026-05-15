@@ -1,5 +1,5 @@
-import { PRODUCTS, CATEGORIES, SELLERS } from '../data/mockData.js';
-import { renderProductCard } from '../components/ui/productCard.js';
+import { PRODUCTS, CATEGORIES, SELLERS, OFFERS } from '../data/mockData.js';
+import { renderProductCard, renderOfferCard } from '../components/ui/productCard.js';
 import { initHomeMap } from '../utils/map.js';
 
 export function renderHomePage(app) {
@@ -15,7 +15,7 @@ export function renderHomePage(app) {
   ];
 
   const trendingProducts = PRODUCTS.filter(p => p.rating >= 4.7).slice(0, 6);
-  const dealsProducts = PRODUCTS.filter(p => p.label === 'Выгодно');
+  const dealsOffers = OFFERS.filter(o => PRODUCTS.find(pr => pr.id === o.productId && pr.label === 'Выгодно')).slice(0, 10);
 
   app.innerHTML = `
     <!-- Hero Slider -->
@@ -82,17 +82,17 @@ export function renderHomePage(app) {
     </section>
 
     <!-- Deals -->
-    ${dealsProducts.length > 0 ? `
+    ${dealsOffers.length > 0 ? `
     <section class="max-w-[1500px] w-full mx-auto px-2 sm:px-4 py-10">
       <div class="ui-island !bg-primary-500/5 !p-4 sm:!p-8">
         <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
           <h2 class="text-2xl font-black text-primary-900 uppercase tracking-tighter">💰 Выгодные предложения</h2>
-          <a href="#/catalog?label=deals" class="bg-primary-600 text-white px-6 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary-700 transition-all shadow-xl shadow-primary-500/20">
-            Все акции
+          <a href="#/catalog?view=offers&sort=price_asc&label=deals" class="bg-primary-600 text-white px-6 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary-700 transition-all shadow-xl shadow-primary-500/20">
+            Все предложения
           </a>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
-          ${dealsProducts.map(p => renderProductCard(p)).join('')}
+          ${dealsOffers.map(o => renderOfferCard(o)).join('')}
         </div>
       </div>
     </section>

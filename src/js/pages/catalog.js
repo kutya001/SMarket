@@ -29,6 +29,7 @@ export function renderCatalogPage(app, params) {
   if (params.seller) State.filters.seller = [params.seller];
   if (params.search) State.filters.search = params.search;
   if (params.view) State.catalogView = params.view;
+  if (params.label) State.filters.label = params.label;
 
   // Clear query params from URL so they don't override State on subsequent renderCurrentPage calls
   if (Object.keys(params).length > 0) {
@@ -433,7 +434,13 @@ export function getFilteredOffers() {
   }
 
   // Filter based on product properties
-  if (State.filters.class.length > 0 || State.filters.category.length > 0 || State.filters.brand.length > 0 || State.filters.search) {
+  if (State.filters.label === 'deals') {
+    const dealsProductIds = getFilteredProducts().filter(p => p.label === 'Выгодно').map(p => p.id);
+    offers = offers.filter(o => {
+      const v = VARIANTS.find(variant => variant.id === o.variantId);
+      return v && dealsProductIds.includes(v.productId);
+    });
+  } else if (State.filters.class.length > 0 || State.filters.category.length > 0 || State.filters.brand.length > 0 || State.filters.search) {
     const validProductIds = getFilteredProducts().map(p => p.id);
     offers = offers.filter(o => {
       const v = VARIANTS.find(variant => variant.id === o.variantId);
@@ -498,7 +505,7 @@ export function applyFilters() {
 
 export function resetAllFilters() {
   const State = window.State;
-  State.filters = { class: [], category: [], brand: [], seller: [], priceMin: 0, priceMax: 999999, condition: 'all', storage: 'all', color: 'all', search: '' };
+  State.filters = { class: [], category: [], brand: [], seller: [], priceMin: 0, priceMax: 999999, condition: 'all', storage: 'all', color: 'all', search: '', label: '' };
   State.sort = 'popular';
   renderCurrentPage();
 }
