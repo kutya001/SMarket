@@ -1,8 +1,8 @@
 const CACHE_NAME = 'sotkamarket-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/logo_ic.png'
+  './',
+  './index.html',
+  './public/logo_ic.png'
 ];
 
 self.addEventListener('install', event => {
