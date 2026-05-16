@@ -1,4 +1,4 @@
-import { PRODUCTS, VARIANTS, OFFERS, REVIEWS, CATEGORIES, BRANDS, SELLERS } from '../data/mockData.js';
+import { PRODUCTS, VARIANTS, OFFERS, REVIEWS, CATEGORIES, BRANDS, SELLERS, CLASSES } from '../data/mockData.js';
 import { renderStars } from '../utils/helpers.js';
 import { initOffersMap, updateMapMarkers, focusMapMarker } from '../utils/map.js';
 import { trackEvent } from '../utils/analytics.js';
@@ -52,6 +52,7 @@ export function renderProductPage(app, slug, params) {
 
   const category = CATEGORIES.find(c => c.id === product.category);
   const brand = BRANDS.find(b => b.id === product.brand);
+  const productClass = category ? CLASSES.find(c => c.id === category.classId) : null;
 
   window._currentNewOffers = variantNewOffers;
   window._currentUsedOffers = variantUsedOffers;
@@ -88,9 +89,9 @@ export function renderProductPage(app, slug, params) {
       <nav class="flex items-center gap-1.5 text-xs sm:text-sm text-surface-500 overflow-x-auto scrollbar-hide shrink-0 w-full">
         <a href="#/" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">Главная</a>
         <svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <a href="#/catalog" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">Каталог</a>
-        <svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        ${productClass ? `<a href="#/catalog?class=${productClass.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${productClass.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
         ${category ? `<a href="#/catalog?category=${category.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${category.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
+        ${brand ? `<a href="#/catalog?brand=${brand.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${brand.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
         <span class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-black text-primary-600 whitespace-nowrap shadow-sm bg-surface-0/90">${product.name}</span>
       </nav>
     </div>

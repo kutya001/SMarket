@@ -1,4 +1,4 @@
-import { OFFERS, SELLERS, PRODUCTS, VARIANTS } from '../data/mockData.js';
+import { OFFERS, SELLERS, PRODUCTS, VARIANTS, CATEGORIES, CLASSES, BRANDS } from '../data/mockData.js';
 import { renderStars } from '../utils/helpers.js';
 
 export function renderOfferPage(app, offerId, params) {
@@ -18,6 +18,10 @@ export function renderOfferPage(app, offerId, params) {
     return;
   }
 
+  const category = CATEGORIES.find(c => c.id === product.category);
+  const brand = BRANDS.find(b => b.id === product.brand);
+  const productClass = category ? CLASSES.find(c => c.id === category.classId) : null;
+
   const conditionLabels = {
     NEW: 'Новое',
     USED_EXCELLENT: 'Б/У - Идеальное состояние',
@@ -31,7 +35,7 @@ export function renderOfferPage(app, offerId, params) {
       `).join('')
     : `<div class="bg-surface-50 border border-surface-200 border-dashed rounded-xl p-8 text-center text-surface-500 w-full">Реальные фотографии продавцом не предоставлены.</div>`;
 
-  const isPhone = product.categoryId === 'smartphones';
+  const isPhone = category?.id === 'smartphones';
 
   app.innerHTML = `
     <!-- Breadcrumbs -->
@@ -39,6 +43,9 @@ export function renderOfferPage(app, offerId, params) {
       <nav class="flex items-center gap-1.5 text-xs sm:text-sm text-surface-500 overflow-x-auto scrollbar-hide shrink-0 w-full">
         <a href="#/" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">Главная</a>
         <svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        ${productClass ? `<a href="#/catalog?class=${productClass.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${productClass.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
+        ${category ? `<a href="#/catalog?category=${category.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${category.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
+        ${brand ? `<a href="#/catalog?brand=${brand.id}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${brand.name}</a><svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` : ''}
         <a href="#/product/${product.slug}" class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-bold hover:shadow-lg transition-all whitespace-nowrap">${product.name}</a>
         <svg class="w-3 h-3 flex-shrink-0 opacity-40 mx-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <span class="ui-island !p-1.5 sm:!p-2 px-3 sm:px-4 !rounded-2xl font-black text-primary-600 whitespace-nowrap shadow-sm bg-surface-0/90">Предложение от ${seller.name}</span>

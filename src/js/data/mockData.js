@@ -16,10 +16,6 @@ export const PRODUCTS = [
   { id:'p15', name:'Зарядка Apple 20W USB-C', slug:'apple-20w-charger', brand:'apple', category:'chargers', label:'Выгодно', rating:4.8, reviewsCount:1400, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Мощность':'20W','Разъем':'USB-C','Тип':'Оригинал'}, description:'Оригинальный адаптер питания Apple USB-C мощностью 20W.' },
   { id:'p16', name:'Чехол Apple Silicone Case (iPhone 16 Pro Max)', slug:'apple-silicone-case-16-pro-max', brand:'apple', category:'cases', label:'', rating:4.5, reviewsCount:400, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Материал':'Силикон','Поддержка MagSafe':'Да','Цвет':'Черный'}, description:'Силиконовый чехол от Apple — стильная защита для вашего iPhone.' },
   { id:'p17', name:'Защитное стекло Remax Glass (iPhone 16 Pro)', slug:'remax-glass-iphone-16-pro', brand:'remax', category:'glass', label:'Выгодно', rating:4.6, reviewsCount:890, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Толщина':'0.2 мм','Защита':'9H','Олеофобное покрытие':'Есть'}, description:'Надежное стекло для защиты дисплея, не влияет на чувствительность сенсора.' },
-  { id:'p18', name:'Дисплей оригинал iPhone 15 Pro Max', slug:'display-iphone-15-pro-max', brand:'apple', category:'displays', label:'', rating:4.9, reviewsCount:44, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Качество':'100% Original','Совместимость':'iPhone 15 Pro Max'}, description:'Оригинальный дисплей для замены в сервисных центрах.' },
-  { id:'p19', name:'Батарея Samsung S24 Ultra (Original)', slug:'battery-samsung-s24-ultra', brand:'samsung', category:'batteries', label:'', rating:4.8, reviewsCount:20, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Емкость':'5000 mAh','Тип':'Li-Ion'}, description:'Оригинальный аккумулятор Samsung для модели S24 Ultra.' },
-  { id:'p20', name:'Прошивка и разблокировка iCloud (удалённо)', slug:'icloud-unlock-software', brand:'apple', category:'unlock', label:'Услуга', rating:4.0, reviewsCount:10, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Срок':'1-3 дня','Тип':'Программный ремонт'}, description:'Восстановление доступа к устройству. Цена варьируется от модели.' },
-  { id:'p21', name:'Замена дисплея iPhone 13', slug:'screen-repair-iphone-13', brand:'apple', category:'repair', label:'Услуга', rating:4.9, reviewsCount:145, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png'], specs:{'Качество':'Копия AAA/Оригинал','Время':'1 час'}, description:'Быстрая замена дисплея лучшими мастерами.' },
   { id:'p22', name:'Lenovo Legion Pro 7i', slug:'lenovo-legion-pro-7i', brand:'lenovo', category:'laptops', label:'Мощь', rating:4.8, reviewsCount:123, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1ba6ad3ba-b937-492c-ba69-145b9e008b2b.png'], specs:{'Экран':'16" WQXGA 240Hz','Процессор':'Intel Core i9-14900HX','ОЗУ':'32 GB','Водеокарта':'RTX 4080 12GB'}, description:'Бескомпромиссная мощь для хардкорных геймеров и профессионалов.' },
   { id:'p23', name:'Xiaomi Redmi Note 13 Pro', slug:'xiaomi-redmi-note-13-pro', brand:'xiaomi', category:'smartphones', label:'Выгодно', rating:4.6, reviewsCount:890, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1fdc06e62-55f8-4743-a7ed-5e85a6458559.png'], specs:{'Экран':'6.67" AMOLED 120Hz','Процессор':'Helio G99 Ultra','ОЗУ':'8 GB','Камера':'200 MP','Батарея':'5000 mAh'}, description:'Бюджетный смартфон с флагманской камерой и ярким экраном.' },
   { id:'p24', name:'Poco X6 Pro', slug:'poco-x6-pro', brand:'xiaomi', category:'smartphones', label:'Хит', rating:4.7, reviewsCount:340, images:['https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1fdc06e62-55f8-4743-a7ed-5e85a6458559.png'], specs:{'Экран':'6.67" AMOLED 120Hz','Процессор':'Dimensity 8300 Ultra','ОЗУ':'12 GB','Камера':'64 MP'}, description:'Зверь производительности в среднем бюджете, идеально для игр.' },
@@ -164,9 +160,7 @@ export const REVIEWS = [
 
 export const CLASSES = [
   { id: 'devices', name: 'Устройства', icon: '📱' },
-  { id: 'accessories', name: 'Аксессуары', icon: '🎧' },
-  { id: 'services', name: 'Услуги', icon: '🛠️' },
-  { id: 'parts', name: 'Запчасти', icon: '⚙️' }
+  { id: 'accessories', name: 'Аксессуары', icon: '🎧' }
 ];
 
 export const CATEGORIES = [
@@ -177,13 +171,7 @@ export const CATEGORIES = [
   { id:'headphones', name:'Наушники', icon:'🎧', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/13c99d60f-7673-4ac4-b7f7-2d5496885e22.png' },
   { id:'chargers', name:'Зарядки', icon:'🔌', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
   { id:'cases', name:'Чехлы', icon:'🛡️', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'glass', name:'Стёкла', icon:'🔲', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'repair', name:'Ремонт', icon:'🔧', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'unlock', name:'Анлок', icon:'🔓', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'firmware', name:'Прошивка', icon:'🔋', classId: 'services', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'displays', name:'Дисплеи', icon:'📱', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'batteries', name:'Батареи', icon:'🔋', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
-  { id:'loops', name:'Шлейфы', icon:'🔌', classId: 'parts', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' },
+  { id:'glass', name:'Стёкла', icon:'🔲', classId: 'accessories', image:'https://image.qwenlm.ai/public_source/3b29826f-5bca-49bd-b528-0bbb6460e7d6/1149c3413-d7cc-4e85-aee2-695436c2b9d6.png' }
 ];
 
 export const BRANDS = [
